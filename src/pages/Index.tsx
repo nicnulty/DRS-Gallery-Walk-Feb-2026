@@ -14,7 +14,9 @@ import {
   Check,
   X,
   Minus,
-  Bot
+  Bot,
+  ArrowDown,
+  ArrowLeft
 } from 'lucide-react';
 
 type Section = 'agenda' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
@@ -214,28 +216,13 @@ const Index = () => {
                 <p className="text-xl text-slate-300">Intelligent automation ecosystem</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-8">
-                {/* Resolution Agent - Red - Single Box */}
-                <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
-                  </div>
-                  <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 hover:shadow-xl hover:shadow-red-900/50 transition-all">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                        <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-
-                {/* Entrypoints - Purple - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10">
+              <div className="relative">
+                {/* Entrypoints - Purple - Top */}
+                <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8">
                   <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                     <span className="text-xs font-semibold text-purple-400">ENTRYPOINTS</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-4 gap-3">
                     <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
                       <CardContent className="p-4">
                         <div className="flex items-center gap-2 mb-1">
@@ -271,77 +258,117 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Diagnostics - Green - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
-                  </div>
-                  <div className="grid grid-cols-1 gap-3">
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Device Data</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Session Insights</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                {/* Arrow Down */}
+                <div className="flex justify-center mb-8">
+                  <ArrowDown className="w-8 h-8 text-slate-500" />
                 </div>
 
-                {/* Action Tools - Blue - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
+                {/* Middle Row: Diagnostics, Resolution Agent, and Actions */}
+                <div className="grid grid-cols-3 gap-8 items-start">
+                  {/* Diagnostics - Green - Left */}
+                  <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
+                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                      <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
+                    </div>
+                    <div className="grid grid-cols-1 gap-3">
+                      <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Device Data</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Session Insights</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Remote Execution</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">AV Scan</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Patching</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
+
+                  {/* Resolution Agent - Red - Center */}
+                  <div className="relative">
+                    {/* Arrow from left (Diagnostics) */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
+                      <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
+                    </div>
+                    
+                    <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
+                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                        <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
+                      </div>
+                      <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 hover:shadow-xl hover:shadow-red-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                            <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Arrow Down to Actions */}
+                    <div className="flex justify-center mt-8">
+                      <ArrowDown className="w-6 h-6 text-slate-500" />
+                    </div>
+                  </div>
+
+                  {/* Empty space for alignment */}
+                  <div></div>
+                </div>
+
+                {/* Actions - Blue - Bottom Center */}
+                <div className="mt-8 max-w-md mx-auto">
+                  <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
+                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                      <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-3">
+                      <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Remote Execution</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">AV Scan</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Patching</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
                 </div>
               </div>
