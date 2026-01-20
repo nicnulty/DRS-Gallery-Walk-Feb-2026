@@ -269,12 +269,12 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
                 <CardTitle className="text-sm text-white">Feature in Action</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="rounded overflow-hidden border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 aspect-video flex items-center justify-center">
-                  <div className="text-center">
-                    <Activity className="w-16 h-16 text-slate-600 mx-auto mb-4" />
-                    <p className="text-slate-400 text-lg">Feature Screenshot</p>
-                    <p className="text-slate-500 text-sm mt-2">{currentFeature.name}</p>
-                  </div>
+                <div className="rounded overflow-hidden border border-slate-700">
+                  <img 
+                    src={currentFeature.screenshot} 
+                    alt={`${currentFeature.name} screenshot`}
+                    className="w-full h-auto"
+                  />
                 </div>
               </CardContent>
             </Card>

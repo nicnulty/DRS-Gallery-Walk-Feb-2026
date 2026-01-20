@@ -29,7 +29,7 @@ export const featuresData = [
       description: 'Session Insights Beta released mid-December achieved a 4.6% adoption rate within just 2 weeks, demonstrating strong early interest in advanced analytics and pattern detection capabilities.',
       date: 'December 2024'
     },
-    screenshot: '/placeholder.svg',
+    screenshot: '/session-notes-screenshot.png',
     quotes: [
       {
         text: 'Session notes are the backbone of my workflow — they ensure I remember exactly what steps I took to resolve a problem, making follow-up and billing seamless.',
