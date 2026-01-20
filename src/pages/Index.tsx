@@ -13,10 +13,11 @@ import {
   Shield,
   Check,
   X,
-  Minus
+  Minus,
+  Bot
 } from 'lucide-react';
 
-type Section = 'agenda' | 'features' | 'competitive-view' | 'roadmap';
+type Section = 'agenda' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
@@ -24,6 +25,7 @@ const Index = () => {
 
   const sections: { id: Section; title: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'agenda', title: 'Agenda', icon: Calendar },
+    { id: 'ai-agents', title: 'AI Agents', icon: Bot },
     { id: 'features', title: 'Feature Overview', icon: Sparkles },
     { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'roadmap', title: 'Roadmap', icon: Target }
@@ -199,6 +201,87 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {currentSection === 'ai-agents' && (
+          <div className="flex-1 bg-slate-900 p-8 overflow-auto flex items-center justify-center">
+            <div className="max-w-6xl w-full">
+              <div className="text-center mb-12">
+                <h2 className="text-5xl font-bold text-white mb-4">AI Agents Architecture</h2>
+                <p className="text-xl text-slate-300">Intelligent automation ecosystem</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                {/* Resolution Agent - Red */}
+                <Card className="bg-gradient-to-br from-red-900/40 to-red-800/20 border-red-700 border-2 hover:shadow-xl hover:shadow-red-900/50 transition-all">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-red-300 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                      Resolution Agent
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-slate-300 text-lg">
+                      Orchestrates end-to-end issue resolution with intelligent decision-making and automated workflows
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Ticket, Device, Alert, AI Agent - Purple */}
+                <Card className="bg-gradient-to-br from-purple-900/40 to-purple-800/20 border-purple-700 border-2 hover:shadow-xl hover:shadow-purple-900/50 transition-all">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-purple-300 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+                      Coordination Layer
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="text-slate-300 text-lg font-semibold">Ticket Agent</div>
+                      <div className="text-slate-300 text-lg font-semibold">Device Agent</div>
+                      <div className="text-slate-300 text-lg font-semibold">Alert Agent</div>
+                      <div className="text-slate-300 text-lg font-semibold">AI Agent</div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Data Sources - Green */}
+                <Card className="bg-gradient-to-br from-green-900/40 to-green-800/20 border-green-700 border-2 hover:shadow-xl hover:shadow-green-900/50 transition-all">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-green-300 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      Intelligence Sources
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="text-slate-300 text-lg font-semibold">Device Data</div>
+                      <div className="text-slate-300 text-lg font-semibold">Knowledge Base</div>
+                      <div className="text-slate-300 text-lg font-semibold">Session Insights</div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Action Tools - Blue */}
+                <Card className="bg-gradient-to-br from-blue-900/40 to-blue-800/20 border-blue-700 border-2 hover:shadow-xl hover:shadow-blue-900/50 transition-all">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-blue-300 flex items-center gap-3">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                      Action Tools
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      <div className="text-slate-300 text-lg font-semibold">Remote Execution</div>
+                      <div className="text-slate-300 text-lg font-semibold">Virtual Technician</div>
+                      <div className="text-slate-300 text-lg font-semibold">AV Scan</div>
+                      <div className="text-slate-300 text-lg font-semibold">Patching</div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
