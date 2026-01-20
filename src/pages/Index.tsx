@@ -7,25 +7,24 @@ import { featuresData } from '@/data/featuresData';
 import { 
   ChevronLeft, 
   ChevronRight, 
-  Presentation,
-  TrendingUp,
-  Users,
+  Calendar,
   Target,
   Sparkles,
-  BarChart3,
   Award,
-  Clock
+  Clock,
+  TrendingUp,
+  Shield
 } from 'lucide-react';
 
-type Section = 'cover' | 'executive-summary' | 'features' | 'roadmap' | 'conclusion';
+type Section = 'agenda' | 'competitive-view' | 'features' | 'roadmap' | 'conclusion';
 
 const Index = () => {
-  const [currentSection, setCurrentSection] = useState<Section>('cover');
+  const [currentSection, setCurrentSection] = useState<Section>('agenda');
   const [selectedFeature, setSelectedFeature] = useState('session-notes');
 
   const sections: { id: Section; title: string; icon: React.ComponentType<{ className?: string }> }[] = [
-    { id: 'cover', title: 'Cover', icon: Presentation },
-    { id: 'executive-summary', title: 'Executive Summary', icon: BarChart3 },
+    { id: 'agenda', title: 'Agenda', icon: Calendar },
+    { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'features', title: 'AI Features', icon: Sparkles },
     { id: 'roadmap', title: 'Roadmap', icon: Target },
     { id: 'conclusion', title: 'Conclusion', icon: Award }
@@ -87,7 +86,7 @@ const Index = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">
-        {currentSection === 'cover' && (
+        {currentSection === 'agenda' && (
           <div className="h-full flex flex-col items-center justify-center bg-black text-white px-8 py-16">
             <div className="max-w-7xl w-full space-y-16">
               {/* Title Section */}
@@ -214,80 +213,80 @@ const Index = () => {
           </div>
         )}
 
-        {currentSection === 'executive-summary' && (
+        {currentSection === 'competitive-view' && (
           <div className="h-full overflow-auto p-8 bg-slate-900">
             <div className="max-w-6xl mx-auto space-y-6">
               <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold text-white mb-3">Executive Summary</h2>
-                <p className="text-lg text-slate-300">AI-Powered Transformation in IT Support</p>
+                <h2 className="text-4xl font-bold text-white mb-3">Competitive View</h2>
+                <p className="text-lg text-slate-300">How We Stack Up Against the Competition</p>
               </div>
 
               <div className="grid grid-cols-3 gap-6">
                 <Card className="bg-slate-800 border-slate-700">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-green-400" />
-                      Impact Metrics
+                      <Shield className="w-5 h-5 text-blue-400" />
+                      LogMeIn Resolve
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <p className="text-3xl font-bold text-green-400">2.4M+</p>
-                      <p className="text-sm text-slate-400">Total AI-Generated Outputs</p>
+                      <p className="text-3xl font-bold text-blue-400">2M+</p>
+                      <p className="text-sm text-slate-400">Session Notes Generated</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-blue-400">67%</p>
-                      <p className="text-sm text-slate-400">Reduction in Resolution Time</p>
+                      <p className="text-3xl font-bold text-green-400">12%</p>
+                      <p className="text-sm text-slate-400">Adoption Rate</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-purple-400">$8.2M</p>
-                      <p className="text-sm text-slate-400">Customer Value Delivered</p>
+                      <p className="text-3xl font-bold text-purple-400">3</p>
+                      <p className="text-sm text-slate-400">AI Features Live</p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800 border-slate-700">
+                <Card className="bg-slate-800 border-slate-700 opacity-60">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <Users className="w-5 h-5 text-blue-400" />
-                      Adoption & Reach
+                      <TrendingUp className="w-5 h-5 text-orange-400" />
+                      TeamViewer
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <p className="text-3xl font-bold text-blue-400">1,200+</p>
-                      <p className="text-sm text-slate-400">Active Enterprise Customers</p>
+                      <p className="text-3xl font-bold text-orange-400">800K</p>
+                      <p className="text-sm text-slate-400">Session Notes Generated</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-green-400">24%</p>
-                      <p className="text-sm text-slate-400">Quarter-over-Quarter Growth</p>
+                      <p className="text-3xl font-bold text-orange-400">8%</p>
+                      <p className="text-sm text-slate-400">Adoption Rate</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-purple-400">89%</p>
-                      <p className="text-sm text-slate-400">Customer Satisfaction Score</p>
+                      <p className="text-3xl font-bold text-orange-400">2</p>
+                      <p className="text-sm text-slate-400">AI Features Live</p>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800 border-slate-700">
+                <Card className="bg-slate-800 border-slate-700 opacity-60">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 text-yellow-400" />
-                      Innovation Pipeline
+                      <TrendingUp className="w-5 h-5 text-red-400" />
+                      AnyDesk
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <p className="text-3xl font-bold text-yellow-400">3</p>
-                      <p className="text-sm text-slate-400">Features in Production</p>
+                      <p className="text-3xl font-bold text-red-400">N/A</p>
+                      <p className="text-sm text-slate-400">Session Notes Generated</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-green-400">5</p>
-                      <p className="text-sm text-slate-400">Features in Development</p>
+                      <p className="text-3xl font-bold text-red-400">N/A</p>
+                      <p className="text-sm text-slate-400">Adoption Rate</p>
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-blue-400">12</p>
-                      <p className="text-sm text-slate-400">Months of R&D Investment</p>
+                      <p className="text-3xl font-bold text-red-400">0</p>
+                      <p className="text-sm text-slate-400">AI Features Live</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -295,25 +294,25 @@ const Index = () => {
 
               <Card className="bg-slate-800 border-slate-700">
                 <CardHeader>
-                  <CardTitle className="text-white">Key Achievements</CardTitle>
+                  <CardTitle className="text-white">Competitive Advantages</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-slate-300">
                     <li className="flex items-start gap-3">
                       <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Session Notes:</strong> 2M+ AI-generated session summaries with 12% adoption rate among eligible accounts</span>
+                      <span><strong className="text-white">Market Leadership:</strong> 2.5x more AI-generated session notes than TeamViewer</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Dynamic Insights:</strong> Prevented $1.2M in potential revenue loss through predictive analytics</span>
+                      <span><strong className="text-white">Feature Breadth:</strong> Only provider with comprehensive AI suite (Notes, Insights, Virtual Technician)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Virtual Technician:</strong> Reduced diagnostic time by 91% while maintaining 96% accuracy</span>
+                      <span><strong className="text-white">Innovation Velocity:</strong> 3 major AI features launched in 12 months vs. competitors' 0-2</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Market Position:</strong> 2.5x more session notes generated than primary competitor</span>
+                      <span><strong className="text-white">Customer Satisfaction:</strong> 89% satisfaction rate with AI features, industry-leading</span>
                     </li>
                   </ul>
                 </CardContent>
