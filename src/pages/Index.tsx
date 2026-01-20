@@ -119,22 +119,22 @@ const Index = () => {
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[100px]">09:15 - 11:15</div>
                         <div>
-                          <div className="font-light">Condensed Gallery Walk w/ Rich</div>
-                          <div className="text-sm text-gray-500 mt-1">Interactive AI showcase</div>
+                          <div className="font-light">Condensed Gallery Walk</div>
+                          <div className="text-sm text-gray-500 mt-1">Interactive AI showcase with Rich</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-orange-400/70 font-light min-w-[100px]">11:15 - 12:00</div>
                         <div>
                           <div className="font-light text-orange-300/80">Brunch</div>
-                          <div className="text-sm text-orange-500/60 mt-1">Networking & refreshments</div>
+                          <div className="text-sm text-orange-300/80 mt-1">Enjoy the break</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[100px]">12:00 - 13:00</div>
                         <div>
                           <div className="font-light">Town Hall</div>
-                          <div className="text-sm text-gray-500 mt-1">Company updates & Q&A</div>
+                          <div className="text-sm text-gray-500 mt-1">Updates, Q&A with Rich, Olga, Joseph</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
@@ -186,7 +186,7 @@ const Index = () => {
                         <div className="text-orange-400/70 font-light min-w-[80px]">12:00</div>
                         <div>
                           <div className="font-light text-orange-300/80">Lunch & Q&A Session</div>
-                          <div className="text-sm text-orange-500/60 mt-1">Open discussion & networking</div>
+                          <div className="text-sm text-orange-300/80 mt-1">Enjoy the break</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
