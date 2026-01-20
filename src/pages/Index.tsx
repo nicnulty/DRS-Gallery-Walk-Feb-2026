@@ -24,7 +24,7 @@ const Index = () => {
 
   const sections: { id: Section; title: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'agenda', title: 'Agenda', icon: Calendar },
-    { id: 'features', title: 'AI Features', icon: Sparkles },
+    { id: 'features', title: 'Feature Overview', icon: Sparkles },
     { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'roadmap', title: 'Roadmap', icon: Target }
   ];
