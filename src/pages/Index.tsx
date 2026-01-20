@@ -169,45 +169,24 @@ const Index = () => {
                     </div>
                     <div className="space-y-4">
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">09:00</div>
+                        <div className="text-gray-500 font-light min-w-[100px]">09:00 - 10:00</div>
                         <div>
-                          <div className="font-light">Product Roadmap Presentation</div>
-                          <div className="text-sm text-gray-500 mt-1">Future innovations & strategy</div>
+                          <div className="font-light">Team Alligators</div>
+                          <div className="text-sm text-gray-500 mt-1">Software usage, device data</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">10:30</div>
+                        <div className="text-gray-500 font-light min-w-[100px]">10:15 - 11:30</div>
                         <div>
-                          <div className="font-light">Hands-on Workshop</div>
-                          <div className="text-sm text-gray-500 mt-1">Interactive AI features demo</div>
+                          <div className="font-light">Tiger Team</div>
+                          <div className="text-sm text-gray-500 mt-1">Overview of AI in Rescue</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-orange-400/70 font-light min-w-[80px]">12:00</div>
+                        <div className="text-gray-500 font-light min-w-[100px]">11:45 - 13:00</div>
                         <div>
-                          <div className="font-light text-orange-300/80">Lunch & Q&A Session</div>
-                          <div className="text-sm text-orange-300/80 mt-1">Enjoy the break</div>
-                        </div>
-                      </div>
-                      <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">13:30</div>
-                        <div>
-                          <div className="font-light">Partner Integration Panel</div>
-                          <div className="text-sm text-gray-500 mt-1">Ecosystem collaboration opportunities</div>
-                        </div>
-                      </div>
-                      <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">15:00</div>
-                        <div>
-                          <div className="font-light">Executive Roundtable</div>
-                          <div className="text-sm text-gray-500 mt-1">Strategic insights & vision</div>
-                        </div>
-                      </div>
-                      <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">16:30</div>
-                        <div>
-                          <div className="font-light">Closing Remarks</div>
-                          <div className="text-sm text-gray-500 mt-1">Next steps & farewell</div>
+                          <div className="font-light">Recap & Brainstorming</div>
+                          <div className="text-sm text-gray-500 mt-1">Wrap-up, takeaways & next steps</div>
                         </div>
                       </div>
                     </div>
