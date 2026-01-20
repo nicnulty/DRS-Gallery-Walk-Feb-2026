@@ -252,7 +252,7 @@ const Index = () => {
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
                             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Ticket Agent</h4>
+                            <h4 className="text-sm font-bold text-white">Ticket</h4>
                           </div>
                         </CardContent>
                       </Card>
@@ -260,7 +260,7 @@ const Index = () => {
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
                             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Device Agent</h4>
+                            <h4 className="text-sm font-bold text-white">Device</h4>
                           </div>
                         </CardContent>
                       </Card>
@@ -268,7 +268,7 @@ const Index = () => {
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
                             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Alert Agent</h4>
+                            <h4 className="text-sm font-bold text-white">Alert</h4>
                           </div>
                         </CardContent>
                       </Card>
