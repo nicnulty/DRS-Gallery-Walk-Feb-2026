@@ -239,23 +239,38 @@ const Index = () => {
                 </div>
               </div>
 
-              {isFutureState ? (
-                // Future State - Full Architecture
-                <div className="relative">
-                  {/* Entrypoints - Purple - Top */}
-                  <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8">
-                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                      <span className="text-xs font-semibold text-purple-400">ENTRYPOINTS</span>
-                    </div>
-                    <div className="grid grid-cols-4 gap-3">
-                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-2 mb-1">
-                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Ticket</h4>
-                          </div>
-                        </CardContent>
-                      </Card>
+              {/* Unified Architecture with Animations */}
+              <div className="relative">
+                {/* Entrypoints - Purple - Top */}
+                <div className={`relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8 transition-all duration-700 ease-in-out ${
+                  isFutureState ? '' : 'mx-auto max-w-fit'
+                }`}>
+                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                    <span className="text-xs font-semibold text-purple-400">
+                      {isFutureState ? 'ENTRYPOINTS' : 'ENTRYPOINT'}
+                    </span>
+                  </div>
+                  <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
+                    isFutureState ? 'grid-cols-4' : 'grid-cols-1'
+                  }`}>
+                    {/* Ticket - Always visible */}
+                    <Card className={`bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-500 ${
+                      isFutureState ? 'hover:shadow-lg hover:shadow-purple-900/50' : ''
+                    }`}>
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                          <h4 className="text-sm font-bold text-white">Ticket</h4>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    
+                    {/* Device - Slides in from right */}
+                    <div className={`transition-all duration-700 ease-in-out ${
+                      isFutureState 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 translate-x-8 absolute pointer-events-none'
+                    }`}>
                       <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
@@ -264,6 +279,14 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
+                    </div>
+                    
+                    {/* Alert - Slides in from right */}
+                    <div className={`transition-all duration-700 delay-100 ease-in-out ${
+                      isFutureState 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 translate-x-8 absolute pointer-events-none'
+                    }`}>
                       <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
@@ -272,6 +295,14 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
+                    </div>
+                    
+                    {/* AI Agent - Slides in from right */}
+                    <div className={`transition-all duration-700 delay-200 ease-in-out ${
+                      isFutureState 
+                        ? 'opacity-100 translate-x-0' 
+                        : 'opacity-0 translate-x-8 absolute pointer-events-none'
+                    }`}>
                       <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
@@ -282,36 +313,51 @@ const Index = () => {
                       </Card>
                     </div>
                   </div>
+                </div>
 
-                  {/* Arrow Down */}
-                  <div className="flex justify-center mb-8">
-                    <ArrowDown className="w-8 h-8 text-slate-500" />
-                  </div>
+                {/* Arrow Down */}
+                <div className="flex justify-center mb-8">
+                  <ArrowDown className="w-8 h-8 text-slate-500" />
+                </div>
 
-                  {/* Middle Row: Diagnostics, Resolution Agent, and Actions */}
-                  <div className="grid grid-cols-3 gap-8 items-start">
-                    {/* Diagnostics - Green - Left */}
-                    <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
-                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
-                      </div>
-                      <div className="grid grid-cols-1 gap-3">
-                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Device Data</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
+                {/* Middle Row: Diagnostics, Resolution Agent */}
+                <div className="grid grid-cols-3 gap-8 items-start">
+                  {/* Diagnostics - Green - Left */}
+                  <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10 transition-all duration-700 ease-in-out">
+                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                      <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
+                    </div>
+                    <div className="grid grid-cols-1 gap-3">
+                      {/* Device Data - Always visible */}
+                      <Card className={`bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 transition-all duration-500 ${
+                        isFutureState ? 'hover:shadow-lg hover:shadow-green-900/50' : ''
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Device Data</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* Knowledge Base - Always visible */}
+                      <Card className={`bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 transition-all duration-500 ${
+                        isFutureState ? 'hover:shadow-lg hover:shadow-green-900/50' : ''
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* Session Insights - Slides in from bottom */}
+                      <div className={`transition-all duration-700 ease-in-out ${
+                        isFutureState 
+                          ? 'opacity-100 translate-y-0 max-h-24' 
+                          : 'opacity-0 translate-y-4 max-h-0 overflow-hidden'
+                      }`}>
                         <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
@@ -322,61 +368,82 @@ const Index = () => {
                         </Card>
                       </div>
                     </div>
-
-                    {/* Resolution Agent - Red - Center */}
-                    <div className="relative">
-                      {/* Arrow from left (Diagnostics) */}
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
-                        <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
-                      </div>
-                      
-                      <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
-                        <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                          <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
-                        </div>
-                        <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 hover:shadow-xl hover:shadow-red-900/50 transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                              <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-
-                      {/* Arrow Down to Actions */}
-                      <div className="flex justify-center mt-8">
-                        <ArrowDown className="w-6 h-6 text-slate-500" />
-                      </div>
-                    </div>
-
-                    {/* Empty space for alignment */}
-                    <div></div>
                   </div>
 
-                  {/* Actions - Blue - Bottom Center */}
-                  <div className="mt-8 max-w-md mx-auto">
-                    <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
+                  {/* Resolution Agent - Red - Center */}
+                  <div className="relative">
+                    {/* Arrow from left (Diagnostics) */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
+                      <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
+                    </div>
+                    
+                    <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10 transition-all duration-500">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
+                        <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
                       </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Remote Execution</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
+                      <Card className={`bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 transition-all duration-500 ${
+                        isFutureState ? 'hover:shadow-xl hover:shadow-red-900/50' : ''
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className={`w-2 h-2 bg-red-500 rounded-full ${isFutureState ? 'animate-pulse' : ''}`}></div>
+                            <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    {/* Arrow Down to Actions */}
+                    <div className="flex justify-center mt-8">
+                      <ArrowDown className="w-6 h-6 text-slate-500" />
+                    </div>
+                  </div>
+
+                  {/* Empty space for alignment */}
+                  <div></div>
+                </div>
+
+                {/* Actions - Blue - Bottom Center */}
+                <div className={`mt-8 transition-all duration-700 ease-in-out ${
+                  isFutureState ? 'max-w-md' : 'max-w-fit'
+                } mx-auto`}>
+                  <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 transition-all duration-700 ease-in-out">
+                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                      <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
+                    </div>
+                    <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
+                      isFutureState ? 'grid-cols-2' : 'grid-cols-2'
+                    }`}>
+                      {/* Remote Execution - Always visible */}
+                      <Card className={`bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-500 ${
+                        isFutureState ? 'hover:shadow-lg hover:shadow-blue-900/50' : ''
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Remote Execution</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* Virtual Technician - Always visible */}
+                      <Card className={`bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-500 ${
+                        isFutureState ? 'hover:shadow-lg hover:shadow-blue-900/50' : ''
+                      }`}>
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      
+                      {/* AV Scan - Slides in from bottom */}
+                      <div className={`transition-all duration-700 ease-in-out ${
+                        isFutureState 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-4 absolute pointer-events-none'
+                      }`}>
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
@@ -385,6 +452,14 @@ const Index = () => {
                             </div>
                           </CardContent>
                         </Card>
+                      </div>
+                      
+                      {/* Patching - Slides in from bottom */}
+                      <div className={`transition-all duration-700 delay-100 ease-in-out ${
+                        isFutureState 
+                          ? 'opacity-100 translate-y-0' 
+                          : 'opacity-0 translate-y-4 absolute pointer-events-none'
+                      }`}>
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
@@ -397,117 +472,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              ) : (
-                // Current State - Simplified with fitted boxes
-                <div className="relative">
-                  {/* Entrypoint - Just Ticket - Fitted */}
-                  <div className="flex justify-center mb-8">
-                    <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 inline-block">
-                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-purple-400">ENTRYPOINT</span>
-                      </div>
-                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 w-64">
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-2 mb-1">
-                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Ticket</h4>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </div>
-
-                  {/* Arrow Down */}
-                  <div className="flex justify-center mb-8">
-                    <ArrowDown className="w-8 h-8 text-slate-500" />
-                  </div>
-
-                  {/* Middle Row: Diagnostics, Resolution Agent */}
-                  <div className="grid grid-cols-3 gap-8 items-start">
-                    {/* Diagnostics - Green - Left - Fitted */}
-                    <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
-                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
-                      </div>
-                      <div className="grid grid-cols-1 gap-3">
-                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Device Data</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </div>
-
-                    {/* Resolution Agent - Red - Center */}
-                    <div className="relative">
-                      {/* Arrow from left (Diagnostics) */}
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
-                        <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
-                      </div>
-                      
-                      <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
-                        <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                          <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
-                        </div>
-                        <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-
-                      {/* Arrow Down to Actions */}
-                      <div className="flex justify-center mt-8">
-                        <ArrowDown className="w-6 h-6 text-slate-500" />
-                      </div>
-                    </div>
-
-                    {/* Empty space for alignment */}
-                    <div></div>
-                  </div>
-
-                  {/* Actions - Blue - Bottom Center - Fitted */}
-                  <div className="mt-8 flex justify-center">
-                    <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 inline-block">
-                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Remote Execution</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           </div>
         )}
