@@ -57,20 +57,98 @@ const Index = () => {
         { icon: Users, text: "Monitor team performance through tickets and session reports" },
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
-      ]
+      ],
+      illustration: (
+        <svg viewBox="0 0 400 300" className="w-full h-auto">
+          {/* CEO at desk with charts */}
+          <rect x="50" y="180" width="80" height="100" fill="#475569" rx="4" />
+          <circle cx="90" cy="150" r="25" fill="#94a3b8" />
+          <rect x="75" y="175" width="30" height="40" fill="#64748b" />
+          <rect x="65" y="215" width="15" height="30" fill="#64748b" />
+          <rect x="105" y="215" width="15" height="30" fill="#64748b" />
+          
+          {/* Desk */}
+          <rect x="30" y="240" width="120" height="10" fill="#334155" />
+          
+          {/* Computer screens with charts */}
+          <rect x="160" y="100" width="100" height="70" fill="#1e293b" stroke="#3b82f6" strokeWidth="2" />
+          <polyline points="170,150 180,140 190,145 200,130 210,135 220,125 230,130 240,120" 
+                    fill="none" stroke="#3b82f6" strokeWidth="2" />
+          <circle cx="180" cy="140" r="3" fill="#3b82f6" />
+          <circle cx="200" cy="130" r="3" fill="#3b82f6" />
+          <circle cx="220" cy="125" r="3" fill="#3b82f6" />
+          <circle cx="240" cy="120" r="3" fill="#3b82f6" />
+          
+          {/* Laptop icons */}
+          <rect x="280" y="130" width="30" height="20" fill="#475569" rx="2" />
+          <rect x="275" y="150" width="40" height="3" fill="#475569" />
+          <rect x="280" y="180" width="30" height="20" fill="#475569" rx="2" />
+          <rect x="275" y="200" width="40" height="3" fill="#475569" />
+          
+          {/* Thought bubble */}
+          <circle cx="120" cy="100" r="30" fill="#334155" opacity="0.8" />
+          <circle cx="105" cy="115" r="15" fill="#334155" opacity="0.8" />
+          <circle cx="95" cy="125" r="8" fill="#334155" opacity="0.8" />
+          <text x="110" y="105" fill="#94a3b8" fontSize="24">?</text>
+        </svg>
+      )
     },
     {
       title: "Undercover Boss",
       subtitle: "Learning the Day-to-Day Reality of Technical Support",
       icon: UserCheck,
-      color: "from-emerald-800 to-emerald-900",
+      color: "from-slate-700 to-slate-800",
       relatedFeature: "session-notes",
       scenario: "You decide you want to learn how technicians actually do their job day to day, so you become a technician, and get a ticket. You check the related knowledge base articles and not find a solution. You create the session with the person and fix the problem (turn on bluetooth). Next you look at the session notes that AI created for you, and to make your life easier create KB article for next time.",
       keyPoints: [
         { icon: Search, text: "Search knowledge base for existing solutions before starting" },
         { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
         { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
-      ]
+      ],
+      illustration: (
+        <svg viewBox="0 0 400 300" className="w-full h-auto">
+          {/* Disguised boss with fake mustache and glasses */}
+          <circle cx="100" cy="120" r="30" fill="#94a3b8" />
+          <rect x="85" y="115" width="30" height="3" fill="#1e293b" />
+          <ellipse cx="90" cy="115" rx="8" ry="6" fill="#1e293b" opacity="0.3" />
+          <ellipse cx="110" cy="115" rx="8" ry="6" fill="#1e293b" opacity="0.3" />
+          <path d="M 85 130 Q 100 135 115 130" fill="none" stroke="#1e293b" strokeWidth="3" />
+          <rect x="70" y="150" width="60" height="50" fill="#64748b" />
+          <rect x="65" y="200" width="20" height="40" fill="#64748b" />
+          <rect x="105" y="200" width="20" height="40" fill="#64748b" />
+          
+          {/* Headset */}
+          <path d="M 70 120 Q 70 100 100 100 Q 130 100 130 120" fill="none" stroke="#475569" strokeWidth="4" />
+          <rect x="128" y="118" width="8" height="15" fill="#475569" rx="2" />
+          
+          {/* Computer with ticket */}
+          <rect x="180" y="140" width="120" height="80" fill="#1e293b" stroke="#64748b" strokeWidth="2" />
+          <rect x="190" y="150" width="100" height="60" fill="#334155" />
+          
+          {/* Ticket icon */}
+          <rect x="200" y="160" width="35" height="40" fill="#475569" rx="2" />
+          <line x1="205" y1="170" x2="230" y2="170" stroke="#94a3b8" strokeWidth="2" />
+          <line x1="205" y1="180" x2="225" y2="180" stroke="#94a3b8" strokeWidth="2" />
+          <line x1="205" y1="190" x2="230" y2="190" stroke="#94a3b8" strokeWidth="2" />
+          
+          {/* Bluetooth symbol being fixed */}
+          <path d="M 250 170 L 250 200 L 270 185 L 250 170 L 270 155 L 250 140 L 250 170" 
+                fill="none" stroke="#3b82f6" strokeWidth="3" />
+          <circle cx="270" cy="155" r="3" fill="#3b82f6" />
+          <circle cx="270" cy="185" r="3" fill="#3b82f6" />
+          
+          {/* Wrench tool */}
+          <rect x="320" y="180" width="8" height="40" fill="#64748b" transform="rotate(-30 324 200)" />
+          <circle cx="324" cy="175" r="8" fill="#64748b" />
+          
+          {/* Knowledge base book */}
+          <rect x="320" y="100" width="50" height="60" fill="#475569" />
+          <rect x="325" y="105" width="40" height="50" fill="#64748b" />
+          <line x1="330" y1="115" x2="360" y2="115" stroke="#94a3b8" strokeWidth="2" />
+          <line x1="330" y1="125" x2="355" y2="125" stroke="#94a3b8" strokeWidth="2" />
+          <line x1="330" y1="135" x2="360" y2="135" stroke="#94a3b8" strokeWidth="2" />
+        </svg>
+      )
     }
   ];
 
@@ -330,6 +408,13 @@ const Index = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-6">
+                  {/* Illustration */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                    <div className="max-w-md mx-auto">
+                      {stories[currentStory].illustration}
+                    </div>
+                  </div>
+
                   {/* Scenario */}
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                     <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wide mb-3">
