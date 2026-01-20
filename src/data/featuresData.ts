@@ -27,7 +27,7 @@ export const featuresData = [
     latestAchievement: {
       title: 'Session Insights Beta Launch Success',
       description: 'Session Insights Beta released mid-December achieved a 4.6% adoption rate within just 2 weeks, demonstrating strong early interest in advanced analytics and pattern detection capabilities.',
-      date: 'December 2024'
+      date: 'December 2025'
     },
     screenshot: `${import.meta.env.BASE_URL}session-notes-screenshot.png`,
     quotes: [
