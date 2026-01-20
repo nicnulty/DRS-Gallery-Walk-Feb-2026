@@ -74,7 +74,7 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
   };
 
   return (
-    <div className="flex-1 bg-gray-50 p-4 overflow-auto">
+    <div className="flex-1 bg-slate-900 p-4 overflow-auto">
       <div className="max-w-[1800px] mx-auto">
         {/* Compact Header */}
         <div className="mb-3 flex items-center justify-between">
@@ -83,8 +83,8 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
               <FeatureIcon className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold">{currentFeature.name}</h1>
-              <div className="flex items-center gap-3 text-xs text-gray-600 mt-0.5">
+              <h1 className="text-xl font-bold text-white">{currentFeature.name}</h1>
+              <div className="flex items-center gap-3 text-xs text-slate-400 mt-0.5">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-3 h-3" />
                   {currentFeature.launchDate}
@@ -99,7 +99,7 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
           
           {/* Feature Selector */}
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" className="h-8 w-8" onClick={handlePrevious}>
+            <Button variant="outline" size="icon" className="h-8 w-8 bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300" onClick={handlePrevious}>
               <ChevronLeft className="w-4 h-4" />
             </Button>
             {features.map((feature) => {
@@ -109,7 +109,11 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
                   key={feature.id}
                   variant={selectedFeature === feature.id ? 'default' : 'outline'}
                   onClick={() => onFeatureChange(feature.id)}
-                  className={`h-8 text-xs ${selectedFeature === feature.id ? feature.color : ''}`}
+                  className={`h-8 text-xs ${
+                    selectedFeature === feature.id 
+                      ? `${feature.color} text-white hover:opacity-90` 
+                      : 'bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300'
+                  }`}
                   size="sm"
                 >
                   <Icon className="w-3 h-3 mr-1" />
@@ -117,7 +121,7 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
                 </Button>
               );
             })}
-            <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleNext}>
+            <Button variant="outline" size="icon" className="h-8 w-8 bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300" onClick={handleNext}>
               <ChevronRight className="w-4 h-4" />
             </Button>
           </div>
@@ -128,24 +132,24 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
           {/* Left Column */}
           <div className="space-y-4">
             {/* Problem & Value */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2">
-                  <Target className="w-4 h-4 text-red-600" />
+                <CardTitle className="text-sm flex items-center gap-2 text-white">
+                  <Target className="w-4 h-4 text-red-400" />
                   Problem & Value
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 mb-1">PROBLEM</p>
-                  <p className="text-xs text-gray-700 leading-relaxed">{currentFeature.problemStatement}</p>
+                  <p className="text-xs font-semibold text-slate-400 mb-1">PROBLEM</p>
+                  <p className="text-xs text-slate-300 leading-relaxed">{currentFeature.problemStatement}</p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-500 mb-1">VALUE</p>
+                  <p className="text-xs font-semibold text-slate-400 mb-1">VALUE</p>
                   <ul className="space-y-1">
                     {currentFeature.customerValue.map((value, index) => (
-                      <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
-                        <span className="text-green-600 font-bold mt-0.5">•</span>
+                      <li key={index} className="flex items-start gap-2 text-xs text-slate-300">
+                        <span className="text-green-400 font-bold mt-0.5">•</span>
                         <span>{value}</span>
                       </li>
                     ))}
@@ -155,26 +159,26 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
             </Card>
 
             {/* KPIs */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-blue-600" />
+                <CardTitle className="text-sm flex items-center gap-2 text-white">
+                  <BarChart3 className="w-4 h-4 text-blue-400" />
                   Key Metrics
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-3 gap-2">
                   {currentFeature.kpis.map((kpi, index) => (
-                    <div key={index} className="bg-gray-50 p-2 rounded">
-                      <p className="text-[10px] text-gray-500 mb-0.5">{kpi.label}</p>
-                      <p className="text-lg font-bold">{kpi.value}</p>
+                    <div key={index} className="bg-slate-900 p-2 rounded border border-slate-700">
+                      <p className="text-[10px] text-slate-400 mb-0.5">{kpi.label}</p>
+                      <p className="text-lg font-bold text-white">{kpi.value}</p>
                       <Badge 
                         variant="secondary" 
                         className={`text-[10px] h-4 ${
-                          kpi.trend === 'bad' ? 'bg-red-100 text-red-700' :
-                          kpi.trend === 'up' ? 'bg-green-100 text-green-700' : 
-                          kpi.trend === 'down' ? 'bg-red-100 text-red-700' : 
-                          'bg-blue-100 text-blue-700'
+                          kpi.trend === 'bad' ? 'bg-red-900/50 text-red-300 border-red-700' :
+                          kpi.trend === 'up' ? 'bg-green-900/50 text-green-300 border-green-700' : 
+                          kpi.trend === 'down' ? 'bg-red-900/50 text-red-300 border-red-700' : 
+                          'bg-blue-900/50 text-blue-300 border-blue-700'
                         }`}
                       >
                         {kpi.change}
@@ -186,47 +190,47 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
             </Card>
 
             {/* Latest Achievement */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-yellow-600" />
+                <CardTitle className="text-sm flex items-center gap-2 text-white">
+                  <Trophy className="w-4 h-4 text-yellow-400" />
                   Latest Achievement
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-3 rounded border-l-2 border-yellow-500">
+                <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 p-3 rounded border-l-2 border-yellow-500">
                   <div className="flex items-start justify-between mb-1">
-                    <h3 className="font-semibold text-xs">{currentFeature.latestAchievement.title}</h3>
-                    <Badge variant="outline" className="text-[10px] h-4">{currentFeature.latestAchievement.date}</Badge>
+                    <h3 className="font-semibold text-xs text-white">{currentFeature.latestAchievement.title}</h3>
+                    <Badge variant="outline" className="text-[10px] h-4 border-yellow-600 text-yellow-400">{currentFeature.latestAchievement.date}</Badge>
                   </div>
-                  <p className="text-xs text-gray-700">{currentFeature.latestAchievement.description}</p>
+                  <p className="text-xs text-slate-300">{currentFeature.latestAchievement.description}</p>
                 </div>
               </CardContent>
             </Card>
 
             {/* Top Customers - Split View */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm">Top Customers</CardTitle>
+                <CardTitle className="text-sm text-white">Top Customers</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3">
                   {/* By ARR */}
                   <div>
                     <div className="flex items-center gap-1 mb-2">
-                      <DollarSign className="w-3 h-3 text-green-600" />
-                      <p className="text-[10px] font-semibold text-gray-600">BY ARR</p>
+                      <DollarSign className="w-3 h-3 text-green-400" />
+                      <p className="text-[10px] font-semibold text-slate-400">BY ARR</p>
                     </div>
                     <div className="space-y-1.5">
                       {currentFeature.topCustomersByARR.map((customer, index) => (
-                        <div key={index} className="flex items-center justify-between p-1.5 bg-gray-50 rounded text-[10px]">
+                        <div key={index} className="flex items-center justify-between p-1.5 bg-slate-900 rounded text-[10px] border border-slate-700">
                           <div className="flex items-center gap-1.5">
                             <div className="w-4 h-4 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                               <span className="text-white font-bold text-[8px]">{index + 1}</span>
                             </div>
-                            <span className="font-medium truncate">{customer.name}</span>
+                            <span className="font-medium truncate text-slate-300">{customer.name}</span>
                           </div>
-                          <span className="text-green-700 font-semibold ml-1">{customer.arr}</span>
+                          <span className="text-green-400 font-semibold ml-1">{customer.arr}</span>
                         </div>
                       ))}
                     </div>
@@ -235,19 +239,19 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
                   {/* By Usage */}
                   <div>
                     <div className="flex items-center gap-1 mb-2">
-                      <Activity className="w-3 h-3 text-blue-600" />
-                      <p className="text-[10px] font-semibold text-gray-600">BY USAGE</p>
+                      <Activity className="w-3 h-3 text-blue-400" />
+                      <p className="text-[10px] font-semibold text-slate-400">BY USAGE</p>
                     </div>
                     <div className="space-y-1.5">
                       {currentFeature.topCustomersByUsage.map((customer, index) => (
-                        <div key={index} className="flex items-center justify-between p-1.5 bg-gray-50 rounded text-[10px]">
+                        <div key={index} className="flex items-center justify-between p-1.5 bg-slate-900 rounded text-[10px] border border-slate-700">
                           <div className="flex items-center gap-1.5">
                             <div className="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                               <span className="text-white font-bold text-[8px]">{index + 1}</span>
                             </div>
-                            <span className="font-medium truncate">{customer.name}</span>
+                            <span className="font-medium truncate text-slate-300">{customer.name}</span>
                           </div>
-                          <span className="text-blue-700 font-semibold ml-1">{customer.usage}</span>
+                          <span className="text-blue-400 font-semibold ml-1">{customer.usage}</span>
                         </div>
                       ))}
                     </div>
@@ -260,43 +264,43 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
           {/* Right Column */}
           <div className="space-y-4">
             {/* Screenshot */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm">Feature in Action</CardTitle>
+                <CardTitle className="text-sm text-white">Feature in Action</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="rounded overflow-hidden border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-100 aspect-video flex items-center justify-center">
+                <div className="rounded overflow-hidden border border-slate-700 bg-gradient-to-br from-slate-800 to-slate-900 aspect-video flex items-center justify-center">
                   <div className="text-center">
-                    <Activity className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                    <p className="text-slate-500 text-lg">Feature Screenshot</p>
-                    <p className="text-slate-400 text-sm mt-2">{currentFeature.name}</p>
+                    <Activity className="w-16 h-16 text-slate-600 mx-auto mb-4" />
+                    <p className="text-slate-400 text-lg">Feature Screenshot</p>
+                    <p className="text-slate-500 text-sm mt-2">{currentFeature.name}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Customer Quotes */}
-            <Card>
+            <Card className="bg-slate-800 border-slate-700">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm flex items-center gap-2">
-                  <Quote className="w-4 h-4 text-purple-600" />
+                <CardTitle className="text-sm flex items-center gap-2 text-white">
+                  <Quote className="w-4 h-4 text-purple-400" />
                   Customer Testimonials
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   {currentFeature.quotes.map((quote, index) => (
-                    <div key={index} className="bg-purple-50 p-3 rounded border-l-2 border-purple-500">
-                      <p className="text-xs text-gray-700 italic mb-2">"{quote.text}"</p>
+                    <div key={index} className="bg-purple-900/20 p-3 rounded border-l-2 border-purple-500">
+                      <p className="text-xs text-slate-300 italic mb-2">"{quote.text}"</p>
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 bg-purple-200 rounded-full flex items-center justify-center flex-shrink-0">
-                          <span className="text-purple-700 font-semibold text-[10px]">
+                        <div className="w-6 h-6 bg-purple-700 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-purple-200 font-semibold text-[10px]">
                             {quote.author.split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                         <div>
-                          <p className="font-semibold text-[10px]">{quote.author}</p>
-                          <p className="text-[9px] text-gray-600">{quote.role}, {quote.company}</p>
+                          <p className="font-semibold text-[10px] text-white">{quote.author}</p>
+                          <p className="text-[9px] text-slate-400">{quote.role}, {quote.company}</p>
                         </div>
                       </div>
                     </div>
