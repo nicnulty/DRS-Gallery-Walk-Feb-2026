@@ -52,6 +52,7 @@ const Index = () => {
       icon: TrendingUp,
       color: "bg-blue-600",
       relatedFeature: "dynamic-insights",
+      relatedFeatureName: "Dynamic Insights",
       scenario: "You are the CEO of a support company, and you love metrics, but you're not a data analyst - Dynamic insights solves this problem - you use dynamic insights to look into the people who work for you (tickets/session reports), and you want to know if you need to plan capital expense of upgrading computers, so you use dynamic insights to investigate the fleet of devices under your care.",
       keyPoints: [
         { icon: Users, text: "Monitor team performance through tickets and session reports" },
@@ -66,6 +67,7 @@ const Index = () => {
       icon: UserCheck,
       color: "bg-purple-600",
       relatedFeature: "session-notes",
+      relatedFeatureName: "Session Notes",
       scenario: "You decide you want to learn how technicians actually do their job day to day, so you become a technician, and get a ticket. You check the related knowledge base articles and not find a solution. You create the session with the person and fix the problem (turn on bluetooth). Next you look at the session notes that AI created for you, and to make your life easier create KB article for next time.",
       keyPoints: [
         { icon: Search, text: "Search knowledge base for existing solutions before starting" },
@@ -359,21 +361,6 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Navigation to Related Feature */}
-              {stories[currentStory].relatedFeature && (
-                <div className="mb-4">
-                  <Button
-                    onClick={() => navigateToFeature(stories[currentStory].relatedFeature!)}
-                    variant="outline"
-                    className="bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white"
-                    size="sm"
-                  >
-                    <ExternalLink className="w-3 h-3 mr-2" />
-                    View Related Feature: {stories[currentStory].relatedFeature === 'session-notes' ? 'Session Notes' : 'Dynamic Insights'}
-                  </Button>
-                </div>
-              )}
-
               {/* Two Column Layout */}
               <div className="grid grid-cols-2 gap-4">
                 {/* Left Column */}
@@ -436,6 +423,29 @@ const Index = () => {
                             </div>
                           );
                         })}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* AI Features Used */}
+                  <Card className="bg-slate-800 border-slate-700">
+                    <CardContent className="p-4">
+                      <div className="bg-slate-900 rounded p-4 border border-slate-700">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Sparkles className="w-4 h-4 text-blue-400" />
+                          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                            AI Features Used
+                          </h3>
+                        </div>
+                        <button
+                          onClick={() => navigateToFeature(stories[currentStory].relatedFeature!)}
+                          className="w-full flex items-center justify-between bg-slate-800 hover:bg-slate-700 rounded-lg p-3 border border-slate-600 hover:border-blue-500 transition-all group"
+                        >
+                          <span className="text-sm font-medium text-white">
+                            {stories[currentStory].relatedFeatureName}
+                          </span>
+                          <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-400 transition-colors" />
+                        </button>
                       </div>
                     </CardContent>
                   </Card>
