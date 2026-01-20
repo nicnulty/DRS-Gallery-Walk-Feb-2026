@@ -10,13 +10,12 @@ import {
   Calendar,
   Target,
   Sparkles,
-  Award,
   Clock,
   TrendingUp,
   Shield
 } from 'lucide-react';
 
-type Section = 'agenda' | 'competitive-view' | 'features' | 'roadmap' | 'conclusion';
+type Section = 'agenda' | 'competitive-view' | 'features' | 'roadmap';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
@@ -26,8 +25,7 @@ const Index = () => {
     { id: 'agenda', title: 'Agenda', icon: Calendar },
     { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'features', title: 'AI Features', icon: Sparkles },
-    { id: 'roadmap', title: 'Roadmap', icon: Target },
-    { id: 'conclusion', title: 'Conclusion', icon: Award }
+    { id: 'roadmap', title: 'Roadmap', icon: Target }
   ];
 
   const currentIndex = sections.findIndex(s => s.id === currentSection);
@@ -405,40 +403,6 @@ const Index = () => {
                     </ul>
                   </CardContent>
                 </Card>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {currentSection === 'conclusion' && (
-          <div className="h-full flex items-center justify-center bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900">
-            <div className="text-center space-y-8 px-8 max-w-4xl">
-              <div className="inline-block p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                <Award className="w-20 h-20 text-green-300" />
-              </div>
-              <h2 className="text-5xl font-bold text-white">Leading the AI Revolution</h2>
-              <p className="text-xl text-green-200 leading-relaxed">
-                Our AI-powered features are transforming IT support operations, delivering measurable value 
-                to over 1,200 enterprise customers while maintaining industry-leading satisfaction scores.
-              </p>
-              <div className="grid grid-cols-3 gap-6 pt-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <p className="text-4xl font-bold text-green-300 mb-2">2.4M+</p>
-                  <p className="text-sm text-green-100">AI Outputs Generated</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <p className="text-4xl font-bold text-green-300 mb-2">67%</p>
-                  <p className="text-sm text-green-100">Time Savings</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                  <p className="text-4xl font-bold text-green-300 mb-2">89%</p>
-                  <p className="text-sm text-green-100">Customer Satisfaction</p>
-                </div>
-              </div>
-              <div className="pt-6">
-                <Badge className="text-lg px-6 py-2 bg-green-600 hover:bg-green-700">
-                  Thank You
-                </Badge>
               </div>
             </div>
           </div>
