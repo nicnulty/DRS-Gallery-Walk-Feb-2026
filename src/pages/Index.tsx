@@ -11,7 +11,6 @@ import {
   Calendar,
   Target,
   Sparkles,
-  Clock,
   Shield,
   Check,
   X,
@@ -89,7 +88,7 @@ const Index = () => {
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">
         {currentSection === 'agenda' && (
-          <div className="h-full flex flex-col items-center justify-center bg-black light:bg-white text-white light:text-slate-900 px-8 py-16">
+          <div className="h-full flex items-center justify-center bg-black light:bg-white text-white light:text-slate-900 px-8">
             <div className="max-w-7xl w-full space-y-16">
               {/* Title Section */}
               <div className="text-center space-y-4">
@@ -98,7 +97,7 @@ const Index = () => {
               </div>
 
               {/* Agenda Section */}
-              <div className="grid grid-cols-2 gap-12 mt-20">
+              <div className="grid grid-cols-2 gap-12">
                 {/* Day 1 */}
                 <div className="space-y-6">
                   <div className="border-b border-gray-800 light:border-slate-200 pb-3">
