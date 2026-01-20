@@ -239,16 +239,14 @@ const Index = () => {
               {/* Unified Architecture with Animations */}
               <div className="relative">
                 {/* Entrypoints - Purple - Top */}
-                <div className={`relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8 transition-all duration-700 ease-in-out ${
-                  isFutureState ? '' : 'max-w-fit mx-auto'
-                }`}>
+                <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8 transition-all duration-700 ease-in-out">
                   <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                     <span className="text-xs font-semibold text-purple-400">
                       {isFutureState ? 'ENTRYPOINTS' : 'ENTRYPOINT'}
                     </span>
                   </div>
                   <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
-                    isFutureState ? 'grid-cols-4' : 'grid-cols-1'
+                    isFutureState ? 'grid-cols-4' : 'grid-cols-4'
                   }`}>
                     {/* Ticket - Always visible, stays in position */}
                     <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-500 hover:shadow-lg hover:shadow-purple-900/50">
@@ -306,9 +304,7 @@ const Index = () => {
                 {/* Middle Row: Diagnostics, Resolution Agent */}
                 <div className="grid grid-cols-3 gap-8 items-start">
                   {/* Diagnostics - Green - Left */}
-                  <div className={`relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10 transition-all duration-700 ease-in-out ${
-                    isFutureState ? '' : 'max-w-fit'
-                  }`}>
+                  <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10 transition-all duration-700 ease-in-out">
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
                     </div>
@@ -383,16 +379,12 @@ const Index = () => {
                 </div>
 
                 {/* Actions - Blue - Bottom Center */}
-                <div className={`mt-8 transition-all duration-700 ease-in-out ${
-                  isFutureState ? 'max-w-md' : 'max-w-fit'
-                } mx-auto`}>
+                <div className="mt-8 max-w-md mx-auto">
                   <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 transition-all duration-700 ease-in-out">
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
                     </div>
-                    <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
-                      isFutureState ? 'grid-cols-2' : 'grid-cols-2'
-                    }`}>
+                    <div className="grid grid-cols-2 gap-3">
                       {/* Remote Execution - Always visible, stays in position */}
                       <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-500 hover:shadow-lg hover:shadow-blue-900/50">
                         <CardContent className="p-4">
