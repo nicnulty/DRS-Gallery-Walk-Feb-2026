@@ -20,7 +20,8 @@ import {
   BookOpen,
   TrendingUp,
   Users,
-  Laptop
+  Laptop,
+  ExternalLink
 } from 'lucide-react';
 
 type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
@@ -45,7 +46,8 @@ const Index = () => {
       title: "The CEO's Dilemma",
       subtitle: "Making Data-Driven Decisions Without Being a Data Analyst",
       icon: TrendingUp,
-      color: "from-blue-600 to-blue-800",
+      color: "from-slate-700 to-slate-800",
+      relatedFeature: "dynamic-insights",
       scenario: "You are the CEO of a support company, and you love metrics, but you're not a data analyst - Dynamic insights solves this problem - you use dynamic insights to look into the people who work for you (tickets/session reports), and you want to know if you need to plan capital expense of upgrading computers, so you use dynamic insights to investigate the fleet of devices under your care.",
       keyPoints: [
         { icon: Users, text: "Monitor team performance through tickets and session reports" },
@@ -79,6 +81,16 @@ const Index = () => {
     if (currentStory < stories.length - 1) {
       setCurrentStory(currentStory + 1);
     }
+  };
+
+  const navigateToFeature = (featureId: string) => {
+    setSelectedFeature(featureId);
+    setCurrentSection('features');
+  };
+
+  const navigateToStory = (storyIndex: number) => {
+    setCurrentStory(storyIndex);
+    setCurrentSection('story');
   };
 
   return (
@@ -333,6 +345,19 @@ const Index = () => {
                       );
                     })}
                   </div>
+
+                  {/* Navigation to Related Feature */}
+                  {stories[currentStory].relatedFeature && (
+                    <div className="pt-4 border-t border-white/20">
+                      <Button
+                        onClick={() => navigateToFeature(stories[currentStory].relatedFeature!)}
+                        className="w-full bg-white/20 hover:bg-white/30 text-white border border-white/30"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Related Feature: Dynamic Insights
+                      </Button>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -588,6 +613,7 @@ const Index = () => {
             features={featuresData}
             selectedFeature={selectedFeature}
             onFeatureChange={setSelectedFeature}
+            onNavigateToStory={navigateToStory}
           />
         )}
 

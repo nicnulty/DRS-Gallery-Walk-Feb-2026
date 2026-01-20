@@ -11,7 +11,8 @@ import {
   Calendar,
   Shield,
   DollarSign,
-  Activity
+  Activity,
+  BookOpen
 } from 'lucide-react';
 
 interface Feature {
@@ -56,9 +57,10 @@ interface FeatureOverviewProps {
   features: Feature[];
   selectedFeature: string;
   onFeatureChange: (featureId: string) => void;
+  onNavigateToStory?: (storyIndex: number) => void;
 }
 
-const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: FeatureOverviewProps) => {
+const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigateToStory }: FeatureOverviewProps) => {
   const currentFeature = features.find(f => f.id === selectedFeature) || features[0];
   const currentIndex = features.findIndex(f => f.id === selectedFeature);
   const FeatureIcon = currentFeature.icon;
@@ -72,6 +74,14 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
     const nextIndex = currentIndex < features.length - 1 ? currentIndex + 1 : 0;
     onFeatureChange(features[nextIndex].id);
   };
+
+  // Map feature IDs to story indices
+  const featureToStoryMap: Record<string, number> = {
+    'dynamic-insights': 0,
+    // Add more mappings as stories are added
+  };
+
+  const relatedStoryIndex = featureToStoryMap[selectedFeature];
 
   return (
     <div className="flex-1 bg-slate-900 p-4 overflow-auto">
@@ -126,6 +136,21 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange }: Feature
             </Button>
           </div>
         </div>
+
+        {/* Navigation to Related Story */}
+        {relatedStoryIndex !== undefined && onNavigateToStory && (
+          <div className="mb-4">
+            <Button
+              onClick={() => onNavigateToStory(relatedStoryIndex)}
+              variant="outline"
+              className="bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white"
+              size="sm"
+            >
+              <BookOpen className="w-3 h-3 mr-2" />
+              View Related Story: The CEO's Dilemma
+            </Button>
+          </div>
+        )}
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-2 gap-4">
