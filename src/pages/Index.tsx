@@ -50,9 +50,7 @@ const Index = () => {
       <div className="bg-slate-950 border-b border-slate-700 px-6 py-3">
         <div className="max-w-[1920px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-blue-400" />
-            <h1 className="text-lg font-bold text-white">AI Innovation Showcase</h1>
-            <Badge variant="outline" className="text-xs text-slate-300 border-slate-600">Q4 2024</Badge>
+            {/* Empty space for alignment */}
           </div>
           
           {/* Section Navigation */}
@@ -91,9 +89,6 @@ const Index = () => {
         {currentSection === 'cover' && (
           <div className="h-full flex items-center justify-center bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
             <div className="text-center space-y-6 px-8">
-              <div className="inline-block p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
-                <Sparkles className="w-20 h-20 text-blue-300" />
-              </div>
               <h1 className="text-6xl font-bold text-white">Dresden AI Gallery Walk</h1>
               <p className="text-2xl text-blue-200">February 2026</p>
             </div>
