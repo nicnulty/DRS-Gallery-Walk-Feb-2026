@@ -21,7 +21,11 @@ import {
   TrendingUp,
   Users,
   Laptop,
-  ExternalLink
+  ExternalLink,
+  UserCheck,
+  FileText,
+  Search,
+  Wrench
 } from 'lucide-react';
 
 type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
@@ -53,6 +57,19 @@ const Index = () => {
         { icon: Users, text: "Monitor team performance through tickets and session reports" },
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
+      ]
+    },
+    {
+      title: "Undercover Boss",
+      subtitle: "Learning the Day-to-Day Reality of Technical Support",
+      icon: UserCheck,
+      color: "from-emerald-800 to-emerald-900",
+      relatedFeature: "session-notes",
+      scenario: "You decide you want to learn how technicians actually do their job day to day, so you become a technician, and get a ticket. You check the related knowledge base articles and not find a solution. You create the session with the person and fix the problem (turn on bluetooth). Next you look at the session notes that AI created for you, and to make your life easier create KB article for next time.",
+      keyPoints: [
+        { icon: Search, text: "Search knowledge base for existing solutions before starting" },
+        { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
+        { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
       ]
     }
   ];
@@ -354,7 +371,7 @@ const Index = () => {
                         className="w-full bg-white/20 hover:bg-white/30 text-white border border-white/30"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        View Related Feature: Dynamic Insights
+                        View Related Feature: {stories[currentStory].relatedFeature === 'session-notes' ? 'Session Notes' : 'Dynamic Insights'}
                       </Button>
                     </div>
                   )}

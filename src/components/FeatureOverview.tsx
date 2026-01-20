@@ -78,10 +78,17 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigat
   // Map feature IDs to story indices
   const featureToStoryMap: Record<string, number> = {
     'dynamic-insights': 0,
+    'session-notes': 1,
     // Add more mappings as stories are added
   };
 
+  const featureToStoryName: Record<string, string> = {
+    'dynamic-insights': "The CEO's Dilemma",
+    'session-notes': 'Undercover Boss',
+  };
+
   const relatedStoryIndex = featureToStoryMap[selectedFeature];
+  const relatedStoryName = featureToStoryName[selectedFeature];
 
   return (
     <div className="flex-1 bg-slate-900 p-4 overflow-auto">
@@ -147,7 +154,7 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigat
               size="sm"
             >
               <BookOpen className="w-3 h-3 mr-2" />
-              View Related Story: The CEO's Dilemma
+              View Related Story: {relatedStoryName}
             </Button>
           </div>
         )}
