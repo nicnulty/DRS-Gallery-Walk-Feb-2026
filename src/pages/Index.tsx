@@ -681,10 +681,10 @@ const Index = () => {
       <div className="bg-slate-950 border-t border-slate-700 px-6 py-3">
         <div className="max-w-[1920px] mx-auto flex items-center justify-between">
           <Button
-            variant="outline"
+            variant="ghost"
             onClick={handlePrevious}
             disabled={currentIndex === 0}
-            className="text-slate-300 border-slate-600 hover:bg-slate-800 hover:text-white disabled:opacity-30"
+            className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent"
           >
             <ChevronLeft className="w-4 h-4 mr-1" />
             Previous
@@ -706,10 +706,10 @@ const Index = () => {
           </div>
 
           <Button
-            variant="outline"
+            variant="ghost"
             onClick={handleNext}
             disabled={currentIndex === sections.length - 1}
-            className="text-slate-300 border-slate-600 hover:bg-slate-800 hover:text-white disabled:opacity-30"
+            className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30 disabled:hover:bg-transparent"
           >
             Next
             <ChevronRight className="w-4 h-4 ml-1" />
