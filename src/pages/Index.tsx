@@ -100,7 +100,7 @@ const Index = () => {
                 <div className="space-y-6">
                   <div className="border-b border-gray-800 pb-3">
                     <h2 className="text-3xl font-light tracking-tight">Day 1</h2>
-                    <p className="text-sm text-gray-500 mt-1">February 10, 2026</p>
+                    <p className="text-sm text-gray-500 mt-1">February 12, 2026</p>
                   </div>
                   <div className="space-y-4">
                     <div className="flex gap-4 group hover:translate-x-1 transition-transform">
@@ -152,7 +152,7 @@ const Index = () => {
                 <div className="space-y-6">
                   <div className="border-b border-gray-800 pb-3">
                     <h2 className="text-3xl font-light tracking-tight">Day 2</h2>
-                    <p className="text-sm text-gray-500 mt-1">February 11, 2026</p>
+                    <p className="text-sm text-gray-500 mt-1">February 13, 2026</p>
                   </div>
                   <div className="space-y-4">
                     <div className="flex gap-4 group hover:translate-x-1 transition-transform">
