@@ -216,55 +216,55 @@ const Index = () => {
 
               <div className="grid grid-cols-2 gap-8">
                 {/* Resolution Agent - Red - Single Box */}
-                <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
+                <div className="relative border-2 border-dashed border-red-500/70 rounded-xl p-6 bg-red-900/20">
+                  <div className="absolute -top-3 left-4 bg-slate-900 px-3">
+                    <span className="text-sm font-bold text-red-400">ORCHESTRATION</span>
                   </div>
-                  <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 hover:shadow-xl hover:shadow-red-900/50 transition-all">
-                    <CardContent className="p-6">
+                  <Card className="bg-slate-800 border-red-600 border-2 hover:shadow-2xl hover:shadow-red-900/60 transition-all">
+                    <CardContent className="p-8">
                       <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
-                        <h3 className="text-xl font-bold text-red-300">Resolution Agent</h3>
+                        <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+                        <h3 className="text-2xl font-bold text-white">Resolution Agent</h3>
                       </div>
                     </CardContent>
                   </Card>
                 </div>
 
                 {/* Coordination Layer - Purple - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-purple-400">COORDINATION</span>
+                <div className="relative border-2 border-dashed border-purple-500/70 rounded-xl p-6 bg-purple-900/20">
+                  <div className="absolute -top-3 left-4 bg-slate-900 px-3">
+                    <span className="text-sm font-bold text-purple-400">COORDINATION</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-purple-300">Ticket Agent</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <Card className="bg-slate-800 border-purple-600 border-2 hover:shadow-xl hover:shadow-purple-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Ticket Agent</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-purple-300">Device Agent</h4>
+                    <Card className="bg-slate-800 border-purple-600 border-2 hover:shadow-xl hover:shadow-purple-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Device Agent</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-purple-300">Alert Agent</h4>
+                    <Card className="bg-slate-800 border-purple-600 border-2 hover:shadow-xl hover:shadow-purple-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Alert Agent</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-purple-300">AI Agent</h4>
+                    <Card className="bg-slate-800 border-purple-600 border-2 hover:shadow-xl hover:shadow-purple-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">AI Agent</h4>
                         </div>
                       </CardContent>
                     </Card>
@@ -272,32 +272,32 @@ const Index = () => {
                 </div>
 
                 {/* Intelligence Sources - Green - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-green-400">INTELLIGENCE</span>
+                <div className="relative border-2 border-dashed border-green-500/70 rounded-xl p-6 bg-green-900/20">
+                  <div className="absolute -top-3 left-4 bg-slate-900 px-3">
+                    <span className="text-sm font-bold text-green-400">INTELLIGENCE</span>
                   </div>
-                  <div className="grid grid-cols-1 gap-3">
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-green-300">Device Data</h4>
+                  <div className="grid grid-cols-1 gap-4">
+                    <Card className="bg-slate-800 border-green-600 border-2 hover:shadow-xl hover:shadow-green-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Device Data</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-green-300">Knowledge Base</h4>
+                    <Card className="bg-slate-800 border-green-600 border-2 hover:shadow-xl hover:shadow-green-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Knowledge Base</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-green-300">Session Insights</h4>
+                    <Card className="bg-slate-800 border-green-600 border-2 hover:shadow-xl hover:shadow-green-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Session Insights</h4>
                         </div>
                       </CardContent>
                     </Card>
@@ -305,40 +305,40 @@ const Index = () => {
                 </div>
 
                 {/* Action Tools - Blue - Multiple Boxes */}
-                <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
-                  <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                    <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
+                <div className="relative border-2 border-dashed border-blue-500/70 rounded-xl p-6 bg-blue-900/20">
+                  <div className="absolute -top-3 left-4 bg-slate-900 px-3">
+                    <span className="text-sm font-bold text-blue-400">ACTIONS</span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-blue-300">Remote Execution</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    <Card className="bg-slate-800 border-blue-600 border-2 hover:shadow-xl hover:shadow-blue-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Remote Execution</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-blue-300">Virtual Technician</h4>
+                    <Card className="bg-slate-800 border-blue-600 border-2 hover:shadow-xl hover:shadow-blue-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Virtual Technician</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-blue-300">AV Scan</h4>
+                    <Card className="bg-slate-800 border-blue-600 border-2 hover:shadow-xl hover:shadow-blue-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">AV Scan</h4>
                         </div>
                       </CardContent>
                     </Card>
-                    <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50 transition-all">
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-blue-300">Patching</h4>
+                    <Card className="bg-slate-800 border-blue-600 border-2 hover:shadow-xl hover:shadow-blue-900/60 transition-all">
+                      <CardContent className="p-5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                          <h4 className="text-lg font-bold text-white">Patching</h4>
                         </div>
                       </CardContent>
                     </Card>
