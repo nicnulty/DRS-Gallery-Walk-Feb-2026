@@ -398,49 +398,48 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                // Current State - Simplified
-                <div className="relative max-w-4xl mx-auto">
-                  <div className="text-center mb-8">
-                    <p className="text-slate-400 text-sm">Today's workflow with limited AI</p>
+                // Current State - Simplified with same layout
+                <div className="relative">
+                  {/* Entrypoint - Just Ticket */}
+                  <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8">
+                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                      <span className="text-xs font-semibold text-purple-400">ENTRYPOINT</span>
+                    </div>
+                    <div className="grid grid-cols-4 gap-3">
+                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Ticket</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                      {/* Empty placeholders to maintain grid */}
+                      <div className="opacity-0"></div>
+                      <div className="opacity-0"></div>
+                      <div className="opacity-0"></div>
+                    </div>
                   </div>
-                  
-                  <div className="relative">
-                    {/* Entrypoint - Just Ticket */}
-                    <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8">
-                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                        <span className="text-xs font-semibold text-purple-400">ENTRYPOINT</span>
-                      </div>
-                      <div className="max-w-xs mx-auto">
-                        <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700">
-                          <CardContent className="p-4">
-                            <div className="flex items-center gap-2 mb-1">
-                              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                              <h4 className="text-sm font-bold text-white">Ticket</h4>
-                            </div>
-                            <p className="text-xs text-slate-400 mt-1">Manual ticket creation and assignment</p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                    </div>
 
-                    {/* Arrow Down */}
-                    <div className="flex justify-center mb-8">
-                      <ArrowDown className="w-6 h-6 text-slate-600" />
-                    </div>
+                  {/* Arrow Down */}
+                  <div className="flex justify-center mb-8">
+                    <ArrowDown className="w-8 h-8 text-slate-500" />
+                  </div>
 
-                    {/* Diagnostics - Limited */}
-                    <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10 mb-8">
+                  {/* Middle Row: Diagnostics, Resolution Agent, and Actions */}
+                  <div className="grid grid-cols-3 gap-8 items-start">
+                    {/* Diagnostics - Green - Left */}
+                    <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
                       </div>
-                      <div className="grid grid-cols-2 gap-3 max-w-2xl mx-auto">
+                      <div className="grid grid-cols-1 gap-3">
                         <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                               <h4 className="text-sm font-bold text-white">Device Data</h4>
                             </div>
-                            <p className="text-xs text-slate-400 mt-1">Basic device information</p>
                           </CardContent>
                         </Card>
                         <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700">
@@ -449,30 +448,59 @@ const Index = () => {
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                               <h4 className="text-sm font-bold text-white">Knowledge Base</h4>
                             </div>
-                            <p className="text-xs text-slate-400 mt-1">Manual search required</p>
                           </CardContent>
                         </Card>
+                        {/* Empty placeholder to maintain size */}
+                        <div className="opacity-0 p-4">
+                          <div className="h-6"></div>
+                        </div>
                       </div>
                     </div>
 
-                    {/* Arrow Down */}
-                    <div className="flex justify-center mb-8">
-                      <ArrowDown className="w-6 h-6 text-slate-600" />
+                    {/* Resolution Agent - Red - Center */}
+                    <div className="relative">
+                      {/* Arrow from left (Diagnostics) */}
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
+                        <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
+                      </div>
+                      
+                      <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10">
+                        <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                          <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
+                        </div>
+                        <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700">
+                          <CardContent className="p-4">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                              <h4 className="text-sm font-bold text-white">Resolution Agent</h4>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+
+                      {/* Arrow Down to Actions */}
+                      <div className="flex justify-center mt-8">
+                        <ArrowDown className="w-6 h-6 text-slate-500" />
+                      </div>
                     </div>
 
-                    {/* Actions - Limited */}
+                    {/* Empty space for alignment */}
+                    <div></div>
+                  </div>
+
+                  {/* Actions - Blue - Bottom Center */}
+                  <div className="mt-8 max-w-md mx-auto">
                     <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
                       </div>
-                      <div className="grid grid-cols-2 gap-3 max-w-2xl mx-auto">
+                      <div className="grid grid-cols-2 gap-3">
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
                               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                               <h4 className="text-sm font-bold text-white">Remote Execution</h4>
                             </div>
-                            <p className="text-xs text-slate-400 mt-1">Manual command execution</p>
                           </CardContent>
                         </Card>
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700">
@@ -481,33 +509,12 @@ const Index = () => {
                               <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                               <h4 className="text-sm font-bold text-white">Virtual Technician</h4>
                             </div>
-                            <p className="text-xs text-slate-400 mt-1">Basic guided diagnostics</p>
                           </CardContent>
                         </Card>
+                        {/* Empty placeholders to maintain grid */}
+                        <div className="opacity-0"></div>
+                        <div className="opacity-0"></div>
                       </div>
-                    </div>
-
-                    {/* Pain Points */}
-                    <div className="bg-red-900/20 border border-red-700/50 rounded-lg p-4 mt-8">
-                      <h4 className="text-sm font-bold text-red-300 mb-3">Current Limitations</h4>
-                      <ul className="space-y-2 text-xs text-slate-300">
-                        <li className="flex items-start gap-2">
-                          <span className="text-red-400 mt-0.5">•</span>
-                          <span>No intelligent orchestration between components</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-red-400 mt-0.5">•</span>
-                          <span>Limited automation capabilities</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-red-400 mt-0.5">•</span>
-                          <span>Manual intervention required at each step</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <span className="text-red-400 mt-0.5">•</span>
-                          <span>No proactive issue detection or prevention</span>
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
