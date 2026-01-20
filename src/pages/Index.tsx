@@ -16,7 +16,7 @@ import {
   Minus,
   Bot,
   ArrowDown,
-  ArrowLeft
+  ArrowRight
 } from 'lucide-react';
 
 type Section = 'agenda' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
@@ -239,7 +239,7 @@ const Index = () => {
               {/* Unified Architecture with Animations */}
               <div className="relative">
                 {/* Entrypoints - Purple - Top */}
-                <div className="mb-8">
+                <div className="mb-4">
                   <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl bg-purple-900/10 p-6 transition-all duration-700 ease-in-out w-fit mx-auto">
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-purple-400">
@@ -302,15 +302,22 @@ const Index = () => {
                   </div>
                 </div>
 
-                {/* Arrow Down */}
-                <div className="flex justify-center mb-8">
-                  <ArrowDown className="w-8 h-8 text-slate-500" />
+                {/* Arrow Down from Entrypoints to Orchestration */}
+                <div className="flex justify-center mb-4">
+                  <div className="flex flex-col items-center">
+                    <ArrowDown className="w-8 h-8 text-purple-400" />
+                  </div>
                 </div>
 
                 {/* Middle Row: Diagnostics, Resolution Agent */}
-                <div className="grid grid-cols-3 gap-8 items-center">
+                <div className="grid grid-cols-3 gap-8 items-center mb-4">
                   {/* Diagnostics - Green - Left */}
-                  <div className="flex justify-end">
+                  <div className="flex justify-end relative">
+                    {/* Arrow from Orchestration to Diagnostics */}
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-10">
+                      <ArrowRight className="w-6 h-6 text-green-400 rotate-180" />
+                    </div>
+                    
                     <div className="relative border-2 border-dashed border-green-500/50 rounded-xl bg-green-900/10 p-6 transition-all duration-700 ease-in-out w-fit">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
@@ -355,11 +362,6 @@ const Index = () => {
 
                   {/* Resolution Agent - Red - Center */}
                   <div className="relative">
-                    {/* Arrow from left (Diagnostics) */}
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8">
-                      <ArrowLeft className="w-6 h-6 text-slate-500 rotate-180" />
-                    </div>
-                    
                     <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10 transition-all duration-500">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-red-400">ORCHESTRATION</span>
@@ -373,19 +375,21 @@ const Index = () => {
                         </CardContent>
                       </Card>
                     </div>
-
-                    {/* Arrow Down to Actions */}
-                    <div className="flex justify-center mt-8">
-                      <ArrowDown className="w-6 h-6 text-slate-500" />
-                    </div>
                   </div>
 
                   {/* Empty space for alignment */}
                   <div></div>
                 </div>
 
+                {/* Arrow Down from Orchestration to Actions */}
+                <div className="flex justify-center mb-4">
+                  <div className="flex flex-col items-center">
+                    <ArrowDown className="w-6 h-6 text-blue-400" />
+                  </div>
+                </div>
+
                 {/* Actions - Blue - Bottom Center */}
-                <div className="mt-8 flex justify-center">
+                <div className="flex justify-center">
                   <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 transition-all duration-700 ease-in-out w-fit">
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
