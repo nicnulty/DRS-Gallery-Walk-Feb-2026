@@ -50,7 +50,7 @@ const Index = () => {
       title: "The CEO's Dilemma",
       subtitle: "Making Data-Driven Decisions Without Being a Data Analyst",
       icon: TrendingUp,
-      color: "from-slate-700 to-slate-800",
+      color: "bg-blue-600",
       relatedFeature: "dynamic-insights",
       scenario: "You are the CEO of a support company, and you love metrics, but you're not a data analyst - Dynamic insights solves this problem - you use dynamic insights to look into the people who work for you (tickets/session reports), and you want to know if you need to plan capital expense of upgrading computers, so you use dynamic insights to investigate the fleet of devices under your care.",
       keyPoints: [
@@ -97,7 +97,7 @@ const Index = () => {
       title: "Undercover Boss",
       subtitle: "Learning the Day-to-Day Reality of Technical Support",
       icon: UserCheck,
-      color: "from-slate-700 to-slate-800",
+      color: "bg-purple-600",
       relatedFeature: "session-notes",
       scenario: "You decide you want to learn how technicians actually do their job day to day, so you become a technician, and get a ticket. You check the related knowledge base articles and not find a solution. You create the session with the person and fix the problem (turn on bluetooth). Next you look at the session notes that AI created for you, and to make your life easier create KB article for next time.",
       keyPoints: [
@@ -346,122 +346,142 @@ const Index = () => {
 
         {currentSection === 'story' && (
           <div className="flex-1 bg-slate-900 overflow-auto p-8">
-            <div className="max-w-5xl mx-auto">
-              {/* Story Navigation */}
-              <div className="flex items-center justify-between mb-8">
-                <Button
-                  variant="ghost"
-                  onClick={handleStoryPrevious}
-                  disabled={currentStory === 0}
-                  className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous Story
-                </Button>
-                
-                <div className="flex items-center gap-2">
-                  {stories.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentStory(index)}
-                      className={`h-2 rounded-full transition-all ${
-                        index === currentStory 
-                          ? 'w-8 bg-blue-500' 
-                          : 'w-2 bg-slate-600 hover:bg-slate-500'
-                      }`}
-                    />
-                  ))}
+            <div className="max-w-6xl mx-auto">
+              {/* Story Header */}
+              <div className="mb-6 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className={`w-12 h-12 ${stories[currentStory].color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                    {(() => {
+                      const StoryIcon = stories[currentStory].icon;
+                      return <StoryIcon className="w-6 h-6 text-white" />;
+                    })()}
+                  </div>
+                  <div>
+                    <h1 className="text-xl font-bold text-white">{stories[currentStory].title}</h1>
+                    <p className="text-sm text-slate-400">{stories[currentStory].subtitle}</p>
+                  </div>
                 </div>
-
-                <Button
-                  variant="ghost"
-                  onClick={handleStoryNext}
-                  disabled={currentStory === stories.length - 1}
-                  className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30"
-                >
-                  Next Story
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </Button>
+                
+                {/* Story Selector */}
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="icon" className="h-8 w-8 bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300" onClick={handleStoryPrevious} disabled={currentStory === 0}>
+                    <ChevronLeft className="w-4 h-4" />
+                  </Button>
+                  {stories.map((story, index) => {
+                    const Icon = story.icon;
+                    return (
+                      <Button
+                        key={index}
+                        variant={currentStory === index ? 'default' : 'outline'}
+                        onClick={() => setCurrentStory(index)}
+                        className={`h-8 text-xs ${
+                          currentStory === index 
+                            ? `${story.color} text-white hover:opacity-90` 
+                            : 'bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300'
+                        }`}
+                        size="sm"
+                      >
+                        <Icon className="w-3 h-3 mr-1" />
+                        Story {index + 1}
+                      </Button>
+                    );
+                  })}
+                  <Button variant="outline" size="icon" className="h-8 w-8 bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300" onClick={handleStoryNext} disabled={currentStory === stories.length - 1}>
+                    <ChevronRight className="w-4 h-4" />
+                  </Button>
+                </div>
               </div>
 
-              {/* Story Content */}
-              <Card className={`bg-gradient-to-br ${stories[currentStory].color} border-0 shadow-2xl`}>
-                <CardHeader className="pb-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      {(() => {
-                        const StoryIcon = stories[currentStory].icon;
-                        return <StoryIcon className="w-8 h-8 text-white" />;
-                      })()}
-                    </div>
-                    <div className="flex-1">
-                      <Badge className="mb-3 bg-white/20 text-white border-white/30">
-                        Story {currentStory + 1} of {stories.length}
-                      </Badge>
-                      <CardTitle className="text-3xl font-bold text-white mb-2">
-                        {stories[currentStory].title}
-                      </CardTitle>
-                      <p className="text-lg text-white/80">
-                        {stories[currentStory].subtitle}
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
+              {/* Navigation to Related Feature */}
+              {stories[currentStory].relatedFeature && (
+                <div className="mb-4">
+                  <Button
+                    onClick={() => navigateToFeature(stories[currentStory].relatedFeature!)}
+                    variant="outline"
+                    className="bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white"
+                    size="sm"
+                  >
+                    <ExternalLink className="w-3 h-3 mr-2" />
+                    View Related Feature: {stories[currentStory].relatedFeature === 'session-notes' ? 'Session Notes' : 'Dynamic Insights'}
+                  </Button>
+                </div>
+              )}
+
+              {/* Two Column Layout */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Left Column */}
+                <div className="space-y-4">
                   {/* Illustration */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                    <div className="max-w-md mx-auto">
-                      {stories[currentStory].illustration}
-                    </div>
-                  </div>
+                  <Card className="bg-slate-800 border-slate-700">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm text-white">Visual Story</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="bg-slate-900 rounded-lg p-6 border border-slate-700">
+                        {stories[currentStory].illustration}
+                      </div>
+                    </CardContent>
+                  </Card>
 
                   {/* Scenario */}
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                    <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wide mb-3">
-                      The Scenario
-                    </h3>
-                    <p className="text-white text-base leading-relaxed">
-                      {stories[currentStory].scenario}
-                    </p>
-                  </div>
+                  <Card className="bg-slate-800 border-slate-700">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm text-white">The Scenario</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        {stories[currentStory].scenario}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
 
-                  {/* Key Points */}
-                  <div className="space-y-3">
-                    <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wide">
-                      Key Capabilities
-                    </h3>
-                    {stories[currentStory].keyPoints.map((point, index) => {
-                      const PointIcon = point.icon;
-                      return (
-                        <div
-                          key={index}
-                          className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
-                        >
-                          <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <PointIcon className="w-5 h-5 text-white" />
-                          </div>
-                          <p className="text-white text-sm leading-relaxed pt-2">
-                            {point.text}
-                          </p>
+                {/* Right Column */}
+                <div className="space-y-4">
+                  {/* Key Capabilities */}
+                  <Card className="bg-slate-800 border-slate-700">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-sm text-white">Key Capabilities</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {stories[currentStory].keyPoints.map((point, index) => {
+                          const PointIcon = point.icon;
+                          return (
+                            <div
+                              key={index}
+                              className="flex items-start gap-3 bg-slate-900 rounded-lg p-3 border border-slate-700"
+                            >
+                              <div className={`w-8 h-8 ${stories[currentStory].color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                                <PointIcon className="w-4 h-4 text-white" />
+                              </div>
+                              <p className="text-xs text-slate-300 leading-relaxed pt-1">
+                                {point.text}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Story Badge */}
+                  <Card className="bg-slate-800 border-slate-700">
+                    <CardContent className="p-4">
+                      <div className={`${stories[currentStory].color} bg-opacity-20 border-l-4 ${stories[currentStory].color.replace('bg-', 'border-')} rounded p-4`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Badge className={`${stories[currentStory].color} text-white`}>
+                            Story {currentStory + 1} of {stories.length}
+                          </Badge>
                         </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Navigation to Related Feature */}
-                  {stories[currentStory].relatedFeature && (
-                    <div className="pt-4 border-t border-white/20">
-                      <Button
-                        onClick={() => navigateToFeature(stories[currentStory].relatedFeature!)}
-                        className="w-full bg-white/20 hover:bg-white/30 text-white border border-white/30"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Related Feature: {stories[currentStory].relatedFeature === 'session-notes' ? 'Session Notes' : 'Dynamic Insights'}
-                      </Button>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
+                        <p className="text-xs text-slate-400">
+                          This story demonstrates how AI-powered features solve real-world challenges in technical support operations.
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
         )}
