@@ -183,7 +183,14 @@ const Index = () => {
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[100px]">11:45 - 13:00</div>
+                        <div className="text-orange-400/70 font-light min-w-[100px]">11:30 - 13:00</div>
+                        <div>
+                          <div className="font-light text-orange-300/80">Lunch</div>
+                          <div className="text-sm text-orange-300/80 mt-1">Enjoy the break</div>
+                        </div>
+                      </div>
+                      <div className="flex gap-4 group hover:translate-x-1 transition-transform">
+                        <div className="text-gray-500 font-light min-w-[100px]">13:00 - 14:00</div>
                         <div>
                           <div className="font-light">Recap & Brainstorming</div>
                           <div className="text-sm text-gray-500 mt-1">Wrap-up, takeaways & next steps</div>
