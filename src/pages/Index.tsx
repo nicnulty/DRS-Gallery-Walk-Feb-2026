@@ -213,9 +213,6 @@ const Index = () => {
           <div className="flex-1 bg-slate-900 p-8 overflow-auto flex items-center justify-center">
             <div className="max-w-7xl w-full">
               <div className="text-center mb-8">
-                <h2 className="text-5xl font-bold text-white mb-4">AI Agents Architecture</h2>
-                <p className="text-xl text-slate-300 mb-6">Intelligent automation ecosystem</p>
-                
                 {/* Toggle */}
                 <div className="flex items-center justify-center gap-3">
                   <span className={`text-sm font-medium ${!isFutureState ? 'text-white' : 'text-slate-500'}`}>
