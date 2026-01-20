@@ -359,7 +359,7 @@ const Index = () => {
                   <div className="relative">
                     {/* Arrow from Orchestration to Diagnostics (pointing left) */}
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full flex items-center">
-                      <ArrowRight className="w-6 h-6 text-green-400 rotate-180" />
+                      <ArrowRight className="w-8 h-8 text-green-400 rotate-180" />
                     </div>
                     
                     <div className="relative border-2 border-dashed border-red-500/50 rounded-xl p-6 bg-red-900/10 transition-all duration-500">
@@ -384,7 +384,7 @@ const Index = () => {
                 {/* Arrow Down from Orchestration to Actions */}
                 <div className="flex justify-center">
                   <div className="flex flex-col items-center">
-                    <ArrowDown className="w-6 h-6 text-blue-400" />
+                    <ArrowDown className="w-8 h-8 text-blue-400" />
                   </div>
                 </div>
 
