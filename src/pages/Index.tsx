@@ -1,361 +1,434 @@
-import { MadeWithDyad } from "@/components/made-with-dyad";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TrendingUp, Users, DollarSign, Activity } from "lucide-react";
+import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { 
+  Target, 
+  BarChart3, 
+  Trophy, 
+  Quote, 
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  Lightbulb,
+  Stethoscope,
+  Calendar,
+  Shield,
+  DollarSign,
+  Activity
+} from 'lucide-react';
 
 const Index = () => {
+  const [selectedFeature, setSelectedFeature] = useState('session-notes');
+
   const features = [
     {
-      id: "feature-1",
-      name: "AI-Powered Ticket Resolution",
-      problem: "Support teams spend 60% of their time on repetitive, low-complexity tickets, leading to slow response times and agent burnout.",
-      value: "Automated ticket classification and resolution suggestions reduce average handling time by 45% while improving first-contact resolution rates.",
-      kpis: [
-        { label: "Avg. Resolution Time", value: "-45%", trend: "down" },
-        { label: "First Contact Resolution", value: "+32%", trend: "up" },
-        { label: "Agent Productivity", value: "+28%", trend: "up" },
-        { label: "Customer Satisfaction", value: "4.7/5", trend: "up" }
+      id: 'session-notes',
+      name: 'Session Notes',
+      icon: FileText,
+      color: 'bg-blue-600',
+      launchDate: 'GA June 30, 2025',
+      eligibility: 'v3 Premium and v3 MSP (since November 2025: all v3 and v4 tiers)',
+      problemStatement: 'Support teams face three critical challenges: excessive time spent on routine tasks and troubleshooting, limited ability to leverage past resolutions, and inconsistent outcomes due to manual processes. This leads to inefficiency, knowledge loss, and variable service quality.',
+      customerValue: [
+        'Enhanced Productivity: Reduce Average Handle Time (AHT) and improve First Call Resolution (FCR) rates',
+        'Improved Service Level Agreements (SLAs): Achieve greater reliability and predictability through automation based on session notes & insights',
+        'Reduced Labor Costs: Facilitate upskilling and automation without requiring advanced expertise',
+        'Seamless End-to-End Workflow: Generate knowledge base articles from previous resolutions'
       ],
-      achievement: "Processed 2.3M tickets automatically in Q4 2024 with 94% accuracy rate",
-      customerQuote: {
-        text: "The AI ticket resolution has transformed our support operations. We're handling 3x more tickets with the same team size.",
-        author: "Sarah Chen",
-        title: "VP of IT Operations",
-        company: "TechCorp Global"
+      description: 'LogMeIn Resolve Session Notes is an AI-powered documentation tool that automatically generates session summaries and detailed notes from recorded remote support sessions.',
+      kpis: [
+        { label: 'Monthly Session Notes', value: '200K', change: '43% of all sessions', trend: 'neutral' },
+        { label: 'Adoption Rate', value: '12%', change: 'from eligible accounts', trend: 'neutral' },
+        { label: 'Monthly Active Accounts', value: '642', change: 'unique paid accounts', trend: 'neutral' },
+        { label: 'Weekly Active Users', value: '63%', change: 'use >1x per week', trend: 'up' },
+        { label: 'Total Session Notes Created', value: '2M', change: '2.5x more than Teamviewer', trend: 'up' },
+        { label: 'Failure Rate', value: '12%', change: '+42.8% from last month', trend: 'bad' }
+      ],
+      latestAchievement: {
+        title: 'Session Insights Beta Launch Success',
+        description: 'Session Insights Beta released mid-December achieved a 4.6% adoption rate within just 2 weeks, demonstrating strong early interest in advanced analytics and pattern detection capabilities.',
+        date: 'December 2024'
       },
+      screenshot: '/placeholder.svg',
+      quotes: [
+        {
+          text: 'Session notes are the backbone of my workflow — they ensure I remember exactly what steps I took to resolve a problem, making follow-up and billing seamless.',
+          author: 'L&S Marketing',
+          role: 'Solo Operator',
+          company: 'Small Business IT Support Provider'
+        }
+      ],
       topCustomersByARR: [
-        { name: "Enterprise Solutions Inc", arr: "$2.4M", logo: "ES" },
-        { name: "Global Tech Partners", arr: "$1.8M", logo: "GT" },
-        { name: "Innovation Systems", arr: "$1.5M", logo: "IS" },
-        { name: "Digital Dynamics", arr: "$1.2M", logo: "DD" },
-        { name: "CloudFirst Corp", arr: "$980K", logo: "CF" }
+        { name: 'Radiology Partners', arr: '$148K' },
+        { name: 'Covington & Burling', arr: '$71K' },
+        { name: 'Dent Wizard Intl', arr: '$70K' },
+        { name: 'Afas Software', arr: '$61K' }
       ],
       topCustomersByUsage: [
-        { name: "Global Tech Partners", tickets: "45K/mo", logo: "GT" },
-        { name: "Enterprise Solutions Inc", tickets: "38K/mo", logo: "ES" },
-        { name: "Digital Dynamics", tickets: "32K/mo", logo: "DD" },
-        { name: "Innovation Systems", tickets: "28K/mo", logo: "IS" },
-        { name: "TechCorp Global", tickets: "24K/mo", logo: "TC" }
+        { name: 'TechSupport Pro', usage: '12.4K' },
+        { name: 'IT Solutions Group', usage: '9.8K' },
+        { name: 'Managed Services Co', usage: '8.2K' },
+        { name: 'Help Desk Plus', usage: '7.6K' }
       ]
     },
     {
-      id: "feature-2",
-      name: "Predictive Asset Management",
-      problem: "IT teams lack visibility into device health, resulting in unexpected failures, costly emergency replacements, and user downtime.",
-      value: "ML-driven predictive analytics identify at-risk devices 30 days in advance, enabling proactive maintenance and reducing unplanned downtime by 67%.",
-      kpis: [
-        { label: "Unplanned Downtime", value: "-67%", trend: "down" },
-        { label: "Hardware Costs", value: "-23%", trend: "down" },
-        { label: "Prediction Accuracy", value: "91%", trend: "up" },
-        { label: "Mean Time to Repair", value: "-41%", trend: "down" }
+      id: 'dynamic-insights',
+      name: 'Dynamic Insights',
+      icon: Lightbulb,
+      color: 'bg-purple-600',
+      launchDate: 'November 2023',
+      eligibility: 'Enterprise tier only',
+      problemStatement: 'Support teams are reactive, discovering patterns and trends only after they become major problems. Without real-time intelligence, opportunities to prevent issues, optimize processes, and improve service quality are constantly missed.',
+      customerValue: [
+        'Identify emerging issues before they escalate',
+        'Discover optimization opportunities in real-time',
+        'Make data-driven decisions instantly',
+        'Predict and prevent customer pain points'
       ],
-      achievement: "Predicted and prevented 12,400 device failures across customer base in Q4 2024",
-      customerQuote: {
-        text: "We've eliminated surprise hardware failures. The predictive insights have saved us millions in emergency replacements.",
-        author: "Michael Rodriguez",
-        title: "CIO",
-        company: "Financial Services Group"
+      description: 'Dynamic Insights provides real-time pattern detection and predictive analytics across your entire support operation.',
+      kpis: [
+        { label: 'Issues Detected Early', value: '450/mo', change: '+340%', trend: 'up' },
+        { label: 'Prediction Accuracy', value: '94%', change: '+47%', trend: 'up' },
+        { label: 'Response Time', value: '< 1 sec', change: '-95%', trend: 'down' },
+        { label: 'Actionable Insights', value: '89%', change: '+56%', trend: 'up' }
+      ],
+      latestAchievement: {
+        title: 'Prevented Major Outage',
+        description: 'Dynamic Insights detected an emerging pattern of authentication failures across RetailMax\'s infrastructure 4 hours before it would have caused a system-wide outage, preventing an estimated $1.2M in lost revenue.',
+        date: 'February 2024'
       },
+      screenshot: '/placeholder.svg',
+      quotes: [
+        {
+          text: 'Dynamic Insights is like having a crystal ball for our support operations. We\'re now preventing problems we didn\'t even know existed. It\'s shifted us from reactive to truly proactive.',
+          author: 'David Park',
+          role: 'CTO',
+          company: 'RetailMax Systems'
+        },
+        {
+          text: 'The real-time pattern detection is incredible. Last month, it identified a configuration drift affecting 200+ devices before a single customer complained. That\'s the kind of proactive service that builds loyalty.',
+          author: 'Jennifer Walsh',
+          role: 'Director of IT Operations',
+          company: 'HealthTech Solutions'
+        }
+      ],
       topCustomersByARR: [
-        { name: "Financial Services Group", arr: "$3.1M", logo: "FS" },
-        { name: "Healthcare Systems Alliance", arr: "$2.7M", logo: "HS" },
-        { name: "Manufacturing United", arr: "$2.2M", logo: "MU" },
-        { name: "Retail Innovations", arr: "$1.9M", logo: "RI" },
-        { name: "Education Network", arr: "$1.4M", logo: "EN" }
+        { name: 'RetailMax Systems', arr: '$245K' },
+        { name: 'HealthTech Solutions', arr: '$198K' },
+        { name: 'ACME Corporation', arr: '$176K' },
+        { name: 'TechCorp Global', arr: '$165K' }
       ],
       topCustomersByUsage: [
-        { name: "Manufacturing United", devices: "28K", logo: "MU" },
-        { name: "Financial Services Group", devices: "24K", logo: "FS" },
-        { name: "Healthcare Systems Alliance", devices: "21K", logo: "HS" },
-        { name: "Retail Innovations", devices: "18K", logo: "RI" },
-        { name: "Education Network", devices: "15K", logo: "EN" }
+        { name: 'RetailMax Systems', usage: '2.3K' },
+        { name: 'HealthTech Solutions', usage: '2.0K' },
+        { name: 'ACME Corporation', usage: '1.9K' },
+        { name: 'TechCorp Global', usage: '1.8K' }
       ]
     },
     {
-      id: "feature-3",
-      name: "Intelligent Knowledge Base",
-      problem: "Users struggle to find relevant solutions in sprawling knowledge bases, leading to increased ticket volume and frustration.",
-      value: "AI-powered semantic search and auto-generated articles reduce ticket creation by 38% and improve self-service resolution rates.",
-      kpis: [
-        { label: "Self-Service Resolution", value: "+38%", trend: "up" },
-        { label: "Search Accuracy", value: "89%", trend: "up" },
-        { label: "Ticket Deflection", value: "+42%", trend: "up" },
-        { label: "Time to Solution", value: "-52%", trend: "down" }
+      id: 'virtual-technician',
+      name: 'Virtual Technician',
+      icon: Stethoscope,
+      color: 'bg-green-600',
+      launchDate: 'September 2023',
+      eligibility: 'All tiers (Basic, Professional, Enterprise)',
+      problemStatement: 'Diagnosing technical issues requires deep expertise and time-consuming manual investigation. Junior technicians struggle with complex problems, while senior technicians are overwhelmed with routine diagnostics that could be automated.',
+      customerValue: [
+        'Instant expert-level diagnostics for any issue',
+        'Empower junior technicians with AI guidance',
+        'Reduce diagnostic time from hours to minutes',
+        'Consistent, thorough troubleshooting every time'
       ],
-      achievement: "Generated 1,850 knowledge articles automatically from resolved tickets in Q4 2024",
-      customerQuote: {
-        text: "Our users can now find answers instantly. The AI understands context better than our old keyword search ever did.",
-        author: "Jennifer Park",
-        title: "Director of IT Support",
-        company: "Innovation Systems"
+      description: 'Virtual Technician provides AI-powered diagnostic capabilities that guide technicians through complex troubleshooting scenarios.',
+      kpis: [
+        { label: 'Diagnostic Time', value: '3 min', change: '-91%', trend: 'down' },
+        { label: 'Accuracy Rate', value: '96%', change: '+42%', trend: 'up' },
+        { label: 'Issues Resolved', value: '12K/mo', change: '+280%', trend: 'up' },
+        { label: 'Escalations', value: '-67%', change: '-67%', trend: 'down' }
+      ],
+      latestAchievement: {
+        title: 'Junior Technician Excellence',
+        description: 'ACME Corporation\'s newest support hire resolved 450 complex tickets in their first month using Virtual Technician—matching the performance of 5-year veterans and earning a 4.9/5 customer satisfaction rating.',
+        date: 'March 2024'
       },
+      screenshot: '/placeholder.svg',
+      quotes: [
+        {
+          text: 'Virtual Technician has democratized expertise across our entire support team. Our junior technicians now handle issues that used to require senior escalation. It\'s like giving everyone a decade of experience overnight.',
+          author: 'Marcus Johnson',
+          role: 'VP of Technical Support',
+          company: 'ACME Corporation'
+        },
+        {
+          text: 'The diagnostic accuracy is remarkable. Virtual Technician catches edge cases and subtle issues that even our most experienced technicians sometimes miss. It\'s raised the bar for our entire operation.',
+          author: 'Emily Chen',
+          role: 'Support Operations Manager',
+          company: 'FinanceHub Inc'
+        }
+      ],
       topCustomersByARR: [
-        { name: "Innovation Systems", arr: "$1.6M", logo: "IS" },
-        { name: "TechCorp Global", arr: "$1.3M", logo: "TC" },
-        { name: "Digital Dynamics", arr: "$1.1M", logo: "DD" },
-        { name: "CloudFirst Corp", arr: "$890K", logo: "CF" },
-        { name: "Enterprise Solutions Inc", arr: "$750K", logo: "ES" }
+        { name: 'ACME Corporation', arr: '$312K' },
+        { name: 'TechCorp Global', arr: '$287K' },
+        { name: 'FinanceHub Inc', arr: '$254K' },
+        { name: 'HealthTech Solutions', arr: '$223K' }
       ],
       topCustomersByUsage: [
-        { name: "TechCorp Global", searches: "125K/mo", logo: "TC" },
-        { name: "Innovation Systems", searches: "98K/mo", logo: "IS" },
-        { name: "Digital Dynamics", searches: "87K/mo", logo: "DD" },
-        { name: "Enterprise Solutions Inc", searches: "76K/mo", logo: "ES" },
-        { name: "CloudFirst Corp", searches: "64K/mo", logo: "CF" }
-      ]
-    },
-    {
-      id: "feature-4",
-      name: "Smart Workflow Automation",
-      problem: "Manual approval processes and routing decisions create bottlenecks, delaying service delivery and frustrating users.",
-      value: "AI-driven workflow automation intelligently routes requests, auto-approves low-risk changes, and reduces approval cycle time by 71%.",
-      kpis: [
-        { label: "Approval Cycle Time", value: "-71%", trend: "down" },
-        { label: "Auto-Approval Rate", value: "64%", trend: "up" },
-        { label: "Routing Accuracy", value: "96%", trend: "up" },
-        { label: "Process Efficiency", value: "+58%", trend: "up" }
-      ],
-      achievement: "Automated 156,000 workflow decisions with 96% accuracy in Q4 2024",
-      customerQuote: {
-        text: "What used to take days now happens in minutes. The AI knows exactly who needs to approve what and when.",
-        author: "David Thompson",
-        title: "Head of Service Management",
-        company: "Global Tech Partners"
-      },
-      topCustomersByARR: [
-        { name: "Global Tech Partners", arr: "$2.9M", logo: "GT" },
-        { name: "Enterprise Solutions Inc", arr: "$2.3M", logo: "ES" },
-        { name: "Financial Services Group", arr: "$1.8M", logo: "FS" },
-        { name: "Manufacturing United", arr: "$1.5M", logo: "MU" },
-        { name: "Healthcare Systems Alliance", arr: "$1.2M", logo: "HS" }
-      ],
-      topCustomersByUsage: [
-        { name: "Enterprise Solutions Inc", workflows: "52K/mo", logo: "ES" },
-        { name: "Global Tech Partners", workflows: "48K/mo", logo: "GT" },
-        { name: "Financial Services Group", workflows: "41K/mo", logo: "FS" },
-        { name: "Manufacturing United", workflows: "35K/mo", logo: "MU" },
-        { name: "Healthcare Systems Alliance", workflows: "29K/mo", logo: "HS" }
-      ]
-    },
-    {
-      id: "feature-5",
-      name: "Anomaly Detection & Security",
-      problem: "Security threats and unusual system behavior often go undetected until significant damage occurs, risking data breaches and compliance violations.",
-      value: "Real-time AI anomaly detection identifies security threats and system irregularities 85% faster, preventing incidents before they escalate.",
-      kpis: [
-        { label: "Threat Detection Speed", value: "+85%", trend: "up" },
-        { label: "False Positive Rate", value: "-76%", trend: "down" },
-        { label: "Incidents Prevented", value: "2,340", trend: "up" },
-        { label: "Mean Time to Detect", value: "-79%", trend: "down" }
-      ],
-      achievement: "Detected and prevented 2,340 security incidents across customer base in Q4 2024",
-      customerQuote: {
-        text: "The AI caught a sophisticated attack pattern that our traditional tools completely missed. It potentially saved us from a major breach.",
-        author: "Amanda Foster",
-        title: "CISO",
-        company: "Financial Services Group"
-      },
-      topCustomersByARR: [
-        { name: "Financial Services Group", arr: "$4.2M", logo: "FS" },
-        { name: "Healthcare Systems Alliance", arr: "$3.5M", logo: "HS" },
-        { name: "Global Tech Partners", arr: "$2.8M", logo: "GT" },
-        { name: "Manufacturing United", arr: "$2.1M", logo: "MU" },
-        { name: "Retail Innovations", arr: "$1.7M", logo: "RI" }
-      ],
-      topCustomersByUsage: [
-        { name: "Financial Services Group", events: "2.4M/mo", logo: "FS" },
-        { name: "Healthcare Systems Alliance", events: "1.9M/mo", logo: "HS" },
-        { name: "Global Tech Partners", events: "1.6M/mo", logo: "GT" },
-        { name: "Manufacturing United", events: "1.3M/mo", logo: "MU" },
-        { name: "Retail Innovations", events: "980K/mo", logo: "RI" }
+        { name: 'ACME Corporation', usage: '45.7K' },
+        { name: 'TechCorp Global', usage: '38.9K' },
+        { name: 'FinanceHub Inc', usage: '34.6K' },
+        { name: 'HealthTech Solutions', usage: '29.3K' }
       ]
     }
   ];
 
+  const currentFeature = features.find(f => f.id === selectedFeature) || features[0];
+  const currentIndex = features.findIndex(f => f.id === selectedFeature);
+  const FeatureIcon = currentFeature.icon;
+
+  const handlePrevious = () => {
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : features.length - 1;
+    setSelectedFeature(features[prevIndex].id);
+  };
+
+  const handleNext = () => {
+    const nextIndex = currentIndex < features.length - 1 ? currentIndex + 1 : 0;
+    setSelectedFeature(features[nextIndex].id);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">AI Innovation Showcase</h1>
-          <p className="text-lg text-slate-600">Executive Presentation - Q4 2024</p>
+    <div className="flex-1 bg-gray-50 p-4 overflow-auto min-h-screen">
+      <div className="max-w-[1800px] mx-auto">
+        {/* Compact Header */}
+        <div className="mb-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className={`w-12 h-12 ${currentFeature.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+              <FeatureIcon className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold">{currentFeature.name}</h1>
+              <div className="flex items-center gap-3 text-xs text-gray-600 mt-0.5">
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {currentFeature.launchDate}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Shield className="w-3 h-3" />
+                  {currentFeature.eligibility}
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Feature Selector */}
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="icon" className="h-8 w-8" onClick={handlePrevious}>
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+            {features.map((feature) => {
+              const Icon = feature.icon;
+              return (
+                <Button
+                  key={feature.id}
+                  variant={selectedFeature === feature.id ? 'default' : 'outline'}
+                  onClick={() => setSelectedFeature(feature.id)}
+                  className={`h-8 text-xs ${selectedFeature === feature.id ? feature.color : ''}`}
+                  size="sm"
+                >
+                  <Icon className="w-3 h-3 mr-1" />
+                  {feature.name}
+                </Button>
+              );
+            })}
+            <Button variant="outline" size="icon" className="h-8 w-8" onClick={handleNext}>
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
         </div>
 
-        {/* Feature Tabs */}
-        <Tabs defaultValue="feature-1" className="w-full">
-          <TabsList className="grid w-full grid-cols-5 mb-8">
-            {features.map((feature, index) => (
-              <TabsTrigger key={feature.id} value={feature.id} className="text-xs sm:text-sm">
-                Feature {index + 1}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          {features.map((feature) => (
-            <TabsContent key={feature.id} value={feature.id} className="space-y-6">
-              {/* Feature Title */}
-              <div className="text-center mb-6">
-                <h2 className="text-3xl font-bold text-slate-900">{feature.name}</h2>
-              </div>
-
-              {/* Problem Statement */}
-              <Card className="border-l-4 border-l-red-500">
-                <CardHeader>
-                  <CardTitle className="text-xl text-red-700">Customer Problem Statement</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-700 text-lg">{feature.problem}</p>
-                </CardContent>
-              </Card>
-
-              {/* Value & Outcomes */}
-              <Card className="border-l-4 border-l-green-500">
-                <CardHeader>
-                  <CardTitle className="text-xl text-green-700">Customer Value & Outcomes</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-700 text-lg">{feature.value}</p>
-                </CardContent>
-              </Card>
-
-              {/* KPIs */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl text-blue-700">Key Performance Indicators</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    {feature.kpis.map((kpi, index) => (
-                      <div key={index} className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm text-slate-600">{kpi.label}</span>
-                          {kpi.trend === "up" ? (
-                            <TrendingUp className="w-4 h-4 text-green-600" />
-                          ) : (
-                            <TrendingUp className="w-4 h-4 text-green-600 rotate-180" />
-                          )}
-                        </div>
-                        <div className="text-2xl font-bold text-slate-900">{kpi.value}</div>
-                      </div>
+        {/* Two Column Layout */}
+        <div className="grid grid-cols-2 gap-4">
+          {/* Left Column */}
+          <div className="space-y-4">
+            {/* Problem & Value */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Target className="w-4 h-4 text-red-600" />
+                  Problem & Value
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 mb-1">PROBLEM</p>
+                  <p className="text-xs text-gray-700 leading-relaxed">{currentFeature.problemStatement}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-gray-500 mb-1">VALUE</p>
+                  <ul className="space-y-1">
+                    {currentFeature.customerValue.map((value, index) => (
+                      <li key={index} className="flex items-start gap-2 text-xs text-gray-700">
+                        <span className="text-green-600 font-bold mt-0.5">•</span>
+                        <span>{value}</span>
+                      </li>
                     ))}
-                  </div>
-                </CardContent>
-              </Card>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
 
-              {/* Latest Achievement */}
-              <Card className="border-l-4 border-l-purple-500">
-                <CardHeader>
-                  <CardTitle className="text-xl text-purple-700">Latest Achievement</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-700 text-lg font-semibold">{feature.achievement}</p>
-                </CardContent>
-              </Card>
-
-              {/* Feature Screenshot Placeholder */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl text-slate-700">Feature Screenshot</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-12 flex items-center justify-center border-2 border-dashed border-slate-300">
-                    <div className="text-center">
-                      <Activity className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                      <p className="text-slate-500 text-lg">Feature Screenshot</p>
-                      <p className="text-slate-400 text-sm mt-2">{feature.name}</p>
+            {/* KPIs */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-blue-600" />
+                  Key Metrics
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-3 gap-2">
+                  {currentFeature.kpis.map((kpi, index) => (
+                    <div key={index} className="bg-gray-50 p-2 rounded">
+                      <p className="text-[10px] text-gray-500 mb-0.5">{kpi.label}</p>
+                      <p className="text-lg font-bold">{kpi.value}</p>
+                      <Badge 
+                        variant="secondary" 
+                        className={`text-[10px] h-4 ${
+                          kpi.trend === 'bad' ? 'bg-red-100 text-red-700' :
+                          kpi.trend === 'up' ? 'bg-green-100 text-green-700' : 
+                          kpi.trend === 'down' ? 'bg-red-100 text-red-700' : 
+                          'bg-blue-100 text-blue-700'
+                        }`}
+                      >
+                        {kpi.change}
+                      </Badge>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
 
-              {/* Customer Quote */}
-              <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200">
-                <CardHeader>
-                  <CardTitle className="text-xl text-amber-800">Customer Testimonial</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <blockquote className="text-lg text-slate-700 italic mb-4">
-                    "{feature.customerQuote.text}"
-                  </blockquote>
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-amber-200 flex items-center justify-center text-amber-800 font-bold">
-                      {feature.customerQuote.author.split(' ').map(n => n[0]).join('')}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900">{feature.customerQuote.author}</div>
-                      <div className="text-sm text-slate-600">{feature.customerQuote.title}</div>
-                      <div className="text-sm text-slate-500">{feature.customerQuote.company}</div>
-                    </div>
+            {/* Latest Achievement */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Trophy className="w-4 h-4 text-yellow-600" />
+                  Latest Achievement
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-3 rounded border-l-2 border-yellow-500">
+                  <div className="flex items-start justify-between mb-1">
+                    <h3 className="font-semibold text-xs">{currentFeature.latestAchievement.title}</h3>
+                    <Badge variant="outline" className="text-[10px] h-4">{currentFeature.latestAchievement.date}</Badge>
                   </div>
-                </CardContent>
-              </Card>
+                  <p className="text-xs text-gray-700">{currentFeature.latestAchievement.description}</p>
+                </div>
+              </CardContent>
+            </Card>
 
-              {/* Top Customers */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* By ARR */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-xl text-slate-700 flex items-center gap-2">
-                      <DollarSign className="w-5 h-5" />
-                      Top 5 Customers by ARR
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      {feature.topCustomersByARR.map((customer, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-200">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
-                              {customer.logo}
+            {/* Top Customers - Split View */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm">Top Customers</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* By ARR */}
+                  <div>
+                    <div className="flex items-center gap-1 mb-2">
+                      <DollarSign className="w-3 h-3 text-green-600" />
+                      <p className="text-[10px] font-semibold text-gray-600">BY ARR</p>
+                    </div>
+                    <div className="space-y-1.5">
+                      {currentFeature.topCustomersByARR.map((customer, index) => (
+                        <div key={index} className="flex items-center justify-between p-1.5 bg-gray-50 rounded text-[10px]">
+                          <div className="flex items-center gap-1.5">
+                            <div className="w-4 h-4 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white font-bold text-[8px]">{index + 1}</span>
                             </div>
-                            <div>
-                              <div className="font-medium text-slate-900">{customer.name}</div>
-                              <Badge variant="secondary" className="text-xs mt-1">Rank #{index + 1}</Badge>
-                            </div>
+                            <span className="font-medium truncate">{customer.name}</span>
                           </div>
-                          <div className="text-lg font-bold text-green-700">{customer.arr}</div>
+                          <span className="text-green-700 font-semibold ml-1">{customer.arr}</span>
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
 
-                {/* By Usage */}
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-xl text-slate-700 flex items-center gap-2">
-                      <Users className="w-5 h-5" />
-                      Top 5 Customers by Usage
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3">
-                      {feature.topCustomersByUsage.map((customer, index) => (
-                        <div key={index} className="flex items-center justify-between p-3 bg-slate-50 rounded-lg border border-slate-200">
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm">
-                              {customer.logo}
+                  {/* By Usage */}
+                  <div>
+                    <div className="flex items-center gap-1 mb-2">
+                      <Activity className="w-3 h-3 text-blue-600" />
+                      <p className="text-[10px] font-semibold text-gray-600">BY USAGE</p>
+                    </div>
+                    <div className="space-y-1.5">
+                      {currentFeature.topCustomersByUsage.map((customer, index) => (
+                        <div key={index} className="flex items-center justify-between p-1.5 bg-gray-50 rounded text-[10px]">
+                          <div className="flex items-center gap-1.5">
+                            <div className="w-4 h-4 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                              <span className="text-white font-bold text-[8px]">{index + 1}</span>
                             </div>
-                            <div>
-                              <div className="font-medium text-slate-900">{customer.name}</div>
-                              <Badge variant="secondary" className="text-xs mt-1">Rank #{index + 1}</Badge>
-                            </div>
+                            <span className="font-medium truncate">{customer.name}</span>
                           </div>
-                          <div className="text-lg font-bold text-purple-700">
-                            {customer.tickets || customer.devices || customer.searches || customer.workflows || customer.events}
-                          </div>
+                          <span className="text-blue-700 font-semibold ml-1">{customer.usage}</span>
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
-        <MadeWithDyad />
+          {/* Right Column */}
+          <div className="space-y-4">
+            {/* Screenshot */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm">Feature in Action</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="rounded overflow-hidden border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-100 aspect-video flex items-center justify-center">
+                  <div className="text-center">
+                    <Activity className="w-16 h-16 text-slate-400 mx-auto mb-4" />
+                    <p className="text-slate-500 text-lg">Feature Screenshot</p>
+                    <p className="text-slate-400 text-sm mt-2">{currentFeature.name}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Customer Quotes */}
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm flex items-center gap-2">
+                  <Quote className="w-4 h-4 text-purple-600" />
+                  Customer Testimonials
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {currentFeature.quotes.map((quote, index) => (
+                    <div key={index} className="bg-purple-50 p-3 rounded border-l-2 border-purple-500">
+                      <p className="text-xs text-gray-700 italic mb-2">"{quote.text}"</p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-purple-200 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-purple-700 font-semibold text-[10px]">
+                            {quote.author.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-[10px]">{quote.author}</p>
+                          <p className="text-[9px] text-gray-600">{quote.role}, {quote.company}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
