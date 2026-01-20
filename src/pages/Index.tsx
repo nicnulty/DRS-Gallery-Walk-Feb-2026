@@ -246,9 +246,7 @@ const Index = () => {
                         {isFutureState ? 'ENTRYPOINTS' : 'ENTRYPOINT'}
                       </span>
                     </div>
-                    <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
-                      isFutureState ? 'grid-cols-4' : 'grid-cols-1'
-                    }`}>
+                    <div className="grid grid-cols-4 gap-3">
                       {/* Ticket - Always visible, stays in position */}
                       <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-500 hover:shadow-lg hover:shadow-purple-900/50">
                         <CardContent className="p-4">
@@ -261,7 +259,7 @@ const Index = () => {
                       
                       {/* Device - Fades in */}
                       <div className={`transition-all duration-700 ease-in-out ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 w-0 h-0 overflow-hidden'
+                        isFutureState ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50">
                           <CardContent className="p-4">
@@ -275,7 +273,7 @@ const Index = () => {
                       
                       {/* Alert - Fades in with delay */}
                       <div className={`transition-all duration-700 delay-100 ease-in-out ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 w-0 h-0 overflow-hidden'
+                        isFutureState ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50">
                           <CardContent className="p-4">
@@ -289,7 +287,7 @@ const Index = () => {
                       
                       {/* AI Agent - Fades in with more delay */}
                       <div className={`transition-all duration-700 delay-200 ease-in-out ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 w-0 h-0 overflow-hidden'
+                        isFutureState ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 hover:shadow-lg hover:shadow-purple-900/50">
                           <CardContent className="p-4">
@@ -392,9 +390,7 @@ const Index = () => {
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
                     </div>
-                    <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
-                      isFutureState ? 'grid-cols-2' : 'grid-cols-2'
-                    }`}>
+                    <div className="grid grid-cols-2 gap-3">
                       {/* Remote Execution - Always visible, stays in position */}
                       <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-500 hover:shadow-lg hover:shadow-blue-900/50">
                         <CardContent className="p-4">
@@ -417,7 +413,7 @@ const Index = () => {
                       
                       {/* AV Scan - Fades in */}
                       <div className={`transition-all duration-700 ease-in-out ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 w-0 h-0 overflow-hidden'
+                        isFutureState ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50">
                           <CardContent className="p-4">
@@ -431,7 +427,7 @@ const Index = () => {
                       
                       {/* Patching - Fades in with delay */}
                       <div className={`transition-all duration-700 delay-100 ease-in-out ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 w-0 h-0 overflow-hidden'
+                        isFutureState ? 'opacity-100' : 'opacity-0'
                       }`}>
                         <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 hover:shadow-lg hover:shadow-blue-900/50">
                           <CardContent className="p-4">
