@@ -16,7 +16,7 @@ import {
   Minus
 } from 'lucide-react';
 
-type Section = 'agenda' | 'competitive-view' | 'features' | 'roadmap';
+type Section = 'agenda' | 'features' | 'competitive-view' | 'roadmap';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
@@ -24,8 +24,8 @@ const Index = () => {
 
   const sections: { id: Section; title: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'agenda', title: 'Agenda', icon: Calendar },
-    { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'features', title: 'AI Features', icon: Sparkles },
+    { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'roadmap', title: 'Roadmap', icon: Target }
   ];
 
@@ -202,6 +202,14 @@ const Index = () => {
               </div>
             </div>
           </div>
+        )}
+
+        {currentSection === 'features' && (
+          <FeatureOverview 
+            features={featuresData}
+            selectedFeature={selectedFeature}
+            onFeatureChange={setSelectedFeature}
+          />
         )}
 
         {currentSection === 'competitive-view' && (
@@ -576,14 +584,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-        )}
-
-        {currentSection === 'features' && (
-          <FeatureOverview 
-            features={featuresData}
-            selectedFeature={selectedFeature}
-            onFeatureChange={setSelectedFeature}
-          />
         )}
 
         {currentSection === 'roadmap' && (
