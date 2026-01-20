@@ -29,7 +29,7 @@ export const featuresData = [
       description: 'Session Insights Beta released mid-December achieved a 4.6% adoption rate within just 2 weeks, demonstrating strong early interest in advanced analytics and pattern detection capabilities.',
       date: 'December 2024'
     },
-    screenshot: '/session-notes-screenshot.png',
+    screenshot: `${import.meta.env.BASE_URL}session-notes-screenshot.png`,
     quotes: [
       {
         text: 'Session notes are the backbone of my workflow — they ensure I remember exactly what steps I took to resolve a problem, making follow-up and billing seamless.',
@@ -77,7 +77,7 @@ export const featuresData = [
       description: 'Dynamic Insights detected an emerging pattern of authentication failures across RetailMax\'s infrastructure 4 hours before it would have caused a system-wide outage, preventing an estimated $1.2M in lost revenue.',
       date: 'February 2024'
     },
-    screenshot: '/placeholder.svg',
+    screenshot: `${import.meta.env.BASE_URL}placeholder.svg`,
     quotes: [
       {
         text: 'Dynamic Insights is like having a crystal ball for our support operations. We\'re now preventing problems we didn\'t even know existed. It\'s shifted us from reactive to truly proactive.',
@@ -131,7 +131,7 @@ export const featuresData = [
       description: 'ACME Corporation\'s newest support hire resolved 450 complex tickets in their first month using Virtual Technician—matching the performance of 5-year veterans and earning a 4.9/5 customer satisfaction rating.',
       date: 'March 2024'
     },
-    screenshot: '/placeholder.svg',
+    screenshot: `${import.meta.env.BASE_URL}placeholder.svg`,
     quotes: [
       {
         text: 'Virtual Technician has democratized expertise across our entire support team. Our junior technicians now handle issues that used to require senior escalation. It\'s like giving everyone a decade of experience overnight.',
