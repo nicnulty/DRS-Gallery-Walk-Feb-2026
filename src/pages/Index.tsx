@@ -113,24 +113,28 @@ const Index = () => {
                         <div className="text-gray-500 font-light min-w-[100px]">09:00 - 09:15</div>
                         <div>
                           <div className="font-light">Welcome, AI Hub Introduction</div>
+                          <div className="text-sm text-gray-500 mt-1">Opening remarks & overview</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[100px]">09:15 - 11:15</div>
                         <div>
                           <div className="font-light">Condensed Gallery Walk w/ Rich</div>
+                          <div className="text-sm text-gray-500 mt-1">Interactive AI showcase</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[100px]">11:15 - 12:00</div>
+                        <div className="text-orange-400/70 font-light min-w-[100px]">11:15 - 12:00</div>
                         <div>
-                          <div className="font-light">Brunch</div>
+                          <div className="font-light text-orange-300/80">Brunch</div>
+                          <div className="text-sm text-orange-500/60 mt-1">Networking & refreshments</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[100px]">12:00 - 13:00</div>
                         <div>
                           <div className="font-light">Town Hall</div>
+                          <div className="text-sm text-gray-500 mt-1">Company updates & Q&A</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
@@ -168,35 +172,35 @@ const Index = () => {
                         <div className="text-gray-500 font-light min-w-[80px]">09:00</div>
                         <div>
                           <div className="font-light">Product Roadmap Presentation</div>
-                          <div className="text-sm text-gray-500 mt-1">Future innovations</div>
+                          <div className="text-sm text-gray-500 mt-1">Future innovations & strategy</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[80px]">10:30</div>
                         <div>
                           <div className="font-light">Hands-on Workshop</div>
-                          <div className="text-sm text-gray-500 mt-1">Interactive AI features</div>
+                          <div className="text-sm text-gray-500 mt-1">Interactive AI features demo</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
-                        <div className="text-gray-500 font-light min-w-[80px]">12:00</div>
+                        <div className="text-orange-400/70 font-light min-w-[80px]">12:00</div>
                         <div>
-                          <div className="font-light">Lunch & Q&A Session</div>
-                          <div className="text-sm text-gray-500 mt-1">Open discussion</div>
+                          <div className="font-light text-orange-300/80">Lunch & Q&A Session</div>
+                          <div className="text-sm text-orange-500/60 mt-1">Open discussion & networking</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[80px]">13:30</div>
                         <div>
                           <div className="font-light">Partner Integration Panel</div>
-                          <div className="text-sm text-gray-500 mt-1">Ecosystem collaboration</div>
+                          <div className="text-sm text-gray-500 mt-1">Ecosystem collaboration opportunities</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
                         <div className="text-gray-500 font-light min-w-[80px]">15:00</div>
                         <div>
                           <div className="font-light">Executive Roundtable</div>
-                          <div className="text-sm text-gray-500 mt-1">Strategic insights</div>
+                          <div className="text-sm text-gray-500 mt-1">Strategic insights & vision</div>
                         </div>
                       </div>
                       <div className="flex gap-4 group hover:translate-x-1 transition-transform">
