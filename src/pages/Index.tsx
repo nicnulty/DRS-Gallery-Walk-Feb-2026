@@ -239,16 +239,16 @@ const Index = () => {
               {/* Unified Architecture with Animations */}
               <div className="relative">
                 {/* Entrypoints - Purple - Top */}
-                <div className={`relative border-2 border-dashed border-purple-500/50 rounded-xl bg-purple-900/10 mb-8 transition-all duration-700 ease-in-out ${
-                  isFutureState ? 'p-6' : 'p-6 w-fit mx-auto'
+                <div className={`relative border-2 border-dashed border-purple-500/50 rounded-xl bg-purple-900/10 mb-8 p-6 transition-all duration-700 ease-in-out ${
+                  isFutureState ? '' : 'w-fit mx-auto'
                 }`}>
                   <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                     <span className="text-xs font-semibold text-purple-400">
                       {isFutureState ? 'ENTRYPOINTS' : 'ENTRYPOINT'}
                     </span>
                   </div>
-                  <div className={`grid gap-3 transition-all duration-700 ease-in-out ${
-                    isFutureState ? 'grid-cols-4' : 'grid-cols-1'
+                  <div className={`flex gap-3 transition-all duration-700 ease-in-out ${
+                    isFutureState ? '' : ''
                   }`}>
                     {/* Ticket - Always visible, stays in position */}
                     <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-500 hover:shadow-lg hover:shadow-purple-900/50">
@@ -261,40 +261,40 @@ const Index = () => {
                     </Card>
                     
                     {/* Device - Fades in */}
-                    <Card className={`bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 ${
-                      isFutureState ? 'opacity-100' : 'opacity-0 invisible'
-                    }`}>
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Device</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    {isFutureState && (
+                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 animate-in fade-in">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Device</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
                     
                     {/* Alert - Fades in with delay */}
-                    <Card className={`bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 delay-100 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 ${
-                      isFutureState ? 'opacity-100' : 'opacity-0 invisible'
-                    }`}>
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">Alert</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    {isFutureState && (
+                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 delay-100 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 animate-in fade-in">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">Alert</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
                     
                     {/* AI Agent - Fades in with more delay */}
-                    <Card className={`bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 delay-200 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 ${
-                      isFutureState ? 'opacity-100' : 'opacity-0 invisible'
-                    }`}>
-                      <CardContent className="p-4">
-                        <div className="flex items-center gap-2 mb-1">
-                          <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                          <h4 className="text-sm font-bold text-white">AI Agent</h4>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    {isFutureState && (
+                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 transition-all duration-700 delay-200 ease-in-out hover:shadow-lg hover:shadow-purple-900/50 animate-in fade-in">
+                        <CardContent className="p-4">
+                          <div className="flex items-center gap-2 mb-1">
+                            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                            <h4 className="text-sm font-bold text-white">AI Agent</h4>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
                   </div>
                 </div>
 
@@ -306,13 +306,13 @@ const Index = () => {
                 {/* Middle Row: Diagnostics, Resolution Agent */}
                 <div className="grid grid-cols-3 gap-8 items-center">
                   {/* Diagnostics - Green - Left */}
-                  <div className={`relative border-2 border-dashed border-green-500/50 rounded-xl bg-green-900/10 transition-all duration-700 ease-in-out ${
-                    isFutureState ? 'p-6' : 'p-6 w-fit ml-auto'
+                  <div className={`relative border-2 border-dashed border-green-500/50 rounded-xl bg-green-900/10 p-6 transition-all duration-700 ease-in-out ${
+                    isFutureState ? '' : 'w-fit ml-auto'
                   }`}>
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                       <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
                     </div>
-                    <div className="grid grid-cols-1 gap-3">
+                    <div className="flex flex-col gap-3">
                       {/* Device Data - Always visible, stays in position */}
                       <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 transition-all duration-500 hover:shadow-lg hover:shadow-green-900/50">
                         <CardContent className="p-4">
@@ -333,13 +333,9 @@ const Index = () => {
                         </CardContent>
                       </Card>
                       
-                      {/* Session Insights - Fades in, uses max-height for smooth expansion */}
-                      <div className={`transition-all duration-700 ease-in-out overflow-hidden ${
-                        isFutureState 
-                          ? 'opacity-100 max-h-24' 
-                          : 'opacity-0 max-h-0'
-                      }`}>
-                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all">
+                      {/* Session Insights - Fades in */}
+                      {isFutureState && (
+                        <Card className="bg-gradient-to-br from-green-900/60 to-green-800/40 border-green-700 hover:shadow-lg hover:shadow-green-900/50 transition-all animate-in fade-in">
                           <CardContent className="p-4">
                             <div className="flex items-center gap-2 mb-1">
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -347,7 +343,7 @@ const Index = () => {
                             </div>
                           </CardContent>
                         </Card>
-                      </div>
+                      )}
                     </div>
                   </div>
 
@@ -384,7 +380,7 @@ const Index = () => {
 
                 {/* Actions - Blue - Bottom Center */}
                 <div className={`mt-8 mx-auto transition-all duration-700 ease-in-out ${
-                  isFutureState ? 'max-w-md' : 'max-w-fit'
+                  isFutureState ? 'max-w-md' : 'w-fit'
                 }`}>
                   <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 transition-all duration-700 ease-in-out">
                     <div className="absolute -top-3 left-4 bg-slate-900 px-2">
@@ -412,28 +408,28 @@ const Index = () => {
                       </Card>
                       
                       {/* AV Scan - Fades in */}
-                      <Card className={`bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-700 ease-in-out hover:shadow-lg hover:shadow-blue-900/50 ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 invisible'
-                      }`}>
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-2 mb-1">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">AV Scan</h4>
-                          </div>
-                        </CardContent>
-                      </Card>
+                      {isFutureState && (
+                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-700 ease-in-out hover:shadow-lg hover:shadow-blue-900/50 animate-in fade-in">
+                          <CardContent className="p-4">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                              <h4 className="text-sm font-bold text-white">AV Scan</h4>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
                       
                       {/* Patching - Fades in with delay */}
-                      <Card className={`bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-700 delay-100 ease-in-out hover:shadow-lg hover:shadow-blue-900/50 ${
-                        isFutureState ? 'opacity-100' : 'opacity-0 invisible'
-                      }`}>
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-2 mb-1">
-                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                            <h4 className="text-sm font-bold text-white">Patching</h4>
-                          </div>
-                        </CardContent>
-                      </Card>
+                      {isFutureState && (
+                        <Card className="bg-gradient-to-br from-blue-900/60 to-blue-800/40 border-blue-700 transition-all duration-700 delay-100 ease-in-out hover:shadow-lg hover:shadow-blue-900/50 animate-in fade-in">
+                          <CardContent className="p-4">
+                            <div className="flex items-center gap-2 mb-1">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                              <h4 className="text-sm font-bold text-white">Patching</h4>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )}
                     </div>
                   </div>
                 </div>
