@@ -847,16 +847,17 @@ const Index = () => {
                 <Card className="bg-slate-800 border-slate-700 border-l-4 border-l-blue-500">
                   <CardHeader>
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-white">Q1 2025: Enhanced Session Insights</CardTitle>
+                      <CardTitle className="text-white">Q1 2025: Improving Existing Features, Agentic Levelup & AI Patching</CardTitle>
                       <Badge className="bg-blue-600">In Development</Badge>
                     </div>
                   </CardHeader>
                   <CardContent className="text-slate-300">
-                    <p className="mb-3">Advanced pattern recognition and trend analysis across all support sessions</p>
+                    <p className="mb-3">Enhancing current capabilities and introducing intelligent automation</p>
                     <ul className="list-disc list-inside space-y-1 text-sm">
-                      <li>Real-time anomaly detection</li>
-                      <li>Automated root cause analysis</li>
-                      <li>Predictive issue forecasting</li>
+                      <li>Resolution Agent</li>
+                      <li>Awareness & Adoption Improvements</li>
+                      <li>AI Patching: Post-Deployment Failure Analysis</li>
+                      <li>AI Patching: Pre-Deployment CVE Score & Sentiment Analysis</li>
                     </ul>
                   </CardContent>
                 </Card>
