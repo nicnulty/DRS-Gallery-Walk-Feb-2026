@@ -58,40 +58,7 @@ const Index = () => {
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
       ],
-      illustration: (
-        <svg viewBox="0 0 400 300" className="w-full h-auto">
-          {/* CEO at desk with charts */}
-          <rect x="50" y="180" width="80" height="100" fill="#475569" rx="4" />
-          <circle cx="90" cy="150" r="25" fill="#94a3b8" />
-          <rect x="75" y="175" width="30" height="40" fill="#64748b" />
-          <rect x="65" y="215" width="15" height="30" fill="#64748b" />
-          <rect x="105" y="215" width="15" height="30" fill="#64748b" />
-          
-          {/* Desk */}
-          <rect x="30" y="240" width="120" height="10" fill="#334155" />
-          
-          {/* Computer screens with charts */}
-          <rect x="160" y="100" width="100" height="70" fill="#1e293b" stroke="#3b82f6" strokeWidth="2" />
-          <polyline points="170,150 180,140 190,145 200,130 210,135 220,125 230,130 240,120" 
-                    fill="none" stroke="#3b82f6" strokeWidth="2" />
-          <circle cx="180" cy="140" r="3" fill="#3b82f6" />
-          <circle cx="200" cy="130" r="3" fill="#3b82f6" />
-          <circle cx="220" cy="125" r="3" fill="#3b82f6" />
-          <circle cx="240" cy="120" r="3" fill="#3b82f6" />
-          
-          {/* Laptop icons */}
-          <rect x="280" y="130" width="30" height="20" fill="#475569" rx="2" />
-          <rect x="275" y="150" width="40" height="3" fill="#475569" />
-          <rect x="280" y="180" width="30" height="20" fill="#475569" rx="2" />
-          <rect x="275" y="200" width="40" height="3" fill="#475569" />
-          
-          {/* Thought bubble */}
-          <circle cx="120" cy="100" r="30" fill="#334155" opacity="0.8" />
-          <circle cx="105" cy="115" r="15" fill="#334155" opacity="0.8" />
-          <circle cx="95" cy="125" r="8" fill="#334155" opacity="0.8" />
-          <text x="110" y="105" fill="#94a3b8" fontSize="24">?</text>
-        </svg>
-      )
+      illustrationImage: `${import.meta.env.BASE_URL}ceodilemma.png`
     },
     {
       title: "Undercover Boss",
@@ -417,8 +384,16 @@ const Index = () => {
                       <CardTitle className="text-sm text-white">Visual Story</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="bg-slate-900 rounded-lg p-6 border border-slate-700">
-                        {stories[currentStory].illustration}
+                      <div className="bg-white rounded-lg p-6 border border-slate-700">
+                        {stories[currentStory].illustrationImage ? (
+                          <img 
+                            src={stories[currentStory].illustrationImage} 
+                            alt={stories[currentStory].title}
+                            className="w-full h-auto"
+                          />
+                        ) : (
+                          stories[currentStory].illustration
+                        )}
                       </div>
                     </CardContent>
                   </Card>
