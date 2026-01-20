@@ -86,9 +86,9 @@ const Index = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1 overflow-hidden flex flex-col">
         {currentSection === 'agenda' && (
-          <div className="h-full flex items-center justify-center bg-black light:bg-white text-white light:text-slate-900 px-8">
+          <div className="flex-1 bg-black light:bg-white text-white light:text-slate-900 px-8 flex items-center justify-center">
             <div className="max-w-7xl w-full space-y-16">
               {/* Title Section */}
               <div className="text-center space-y-4">
