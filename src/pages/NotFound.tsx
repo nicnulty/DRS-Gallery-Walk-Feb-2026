@@ -1,15 +1,23 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // If we're at the base path, redirect to home instead of showing 404
+    const basePath = import.meta.env.BASE_URL || '/';
+    if (location.pathname === basePath || location.pathname === basePath.replace(/\/$/, '')) {
+      navigate('/', { replace: true });
+      return;
+    }
+    
     console.error(
       "404 Error: User attempted to access non-existent route:",
       location.pathname,
     );
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
