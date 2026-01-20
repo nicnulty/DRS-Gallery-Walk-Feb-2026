@@ -222,13 +222,10 @@ const Index = () => {
                   </div>
                   <Card className="bg-gradient-to-br from-red-900/60 to-red-800/40 border-red-700 hover:shadow-xl hover:shadow-red-900/50 transition-all">
                     <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-2">
+                      <div className="flex items-center gap-3">
                         <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
                         <h3 className="text-xl font-bold text-red-300">Resolution Agent</h3>
                       </div>
-                      <p className="text-slate-300 text-sm">
-                        Orchestrates end-to-end issue resolution with intelligent decision-making
-                      </p>
                     </CardContent>
                   </Card>
                 </div>
