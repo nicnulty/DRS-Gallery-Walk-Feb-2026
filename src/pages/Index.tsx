@@ -11,8 +11,10 @@ import {
   Target,
   Sparkles,
   Clock,
-  TrendingUp,
-  Shield
+  Shield,
+  Check,
+  X,
+  Minus
 } from 'lucide-react';
 
 type Section = 'agenda' | 'competitive-view' | 'features' | 'roadmap';
@@ -213,108 +215,374 @@ const Index = () => {
 
         {currentSection === 'competitive-view' && (
           <div className="h-full overflow-auto p-8 bg-slate-900">
-            <div className="max-w-6xl mx-auto space-y-6">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl font-bold text-white mb-3">Competitive View</h2>
-                <p className="text-lg text-slate-300">How We Stack Up Against the Competition</p>
+            <div className="max-w-[1600px] mx-auto space-y-8">
+              <div className="text-center mb-6">
+                <h2 className="text-4xl font-bold text-white mb-3">Competitive Analysis</h2>
+                <p className="text-lg text-slate-300">AI Feature Comparison Across Remote Support Platforms</p>
               </div>
 
-              <div className="grid grid-cols-3 gap-6">
+              {/* Section 1: Comprehensive Comparison Table */}
+              <Card className="bg-slate-800 border-slate-700">
+                <CardHeader>
+                  <CardTitle className="text-white text-xl">AI Capabilities Comparison Matrix</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-600">
+                          <th className="text-left py-3 px-4 text-slate-400 font-semibold">Capability</th>
+                          <th className="py-3 px-4 bg-blue-900/30 text-blue-300 font-bold">LogMeIn Resolve</th>
+                          <th className="py-3 px-4 text-slate-300">TeamViewer</th>
+                          <th className="py-3 px-4 text-slate-300">AnyDesk</th>
+                          <th className="py-3 px-4 text-slate-300">ConnectWise</th>
+                          <th className="py-3 px-4 text-slate-300">Splashtop</th>
+                          <th className="py-3 px-4 text-slate-300">RemotePC</th>
+                        </tr>
+                      </thead>
+                      <tbody className="text-slate-200">
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">AI Session Notes</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Check className="w-5 h-5 text-yellow-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">Real-time Pattern Detection</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">AI-Guided Diagnostics</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">Predictive Analytics</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">Automated Knowledge Base</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Check className="w-5 h-5 text-yellow-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">Multi-language AI Support</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Check className="w-5 h-5 text-yellow-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">Custom AI Training</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                        <tr className="border-b border-slate-700 hover:bg-slate-750">
+                          <td className="py-3 px-4 font-medium">API Integration</td>
+                          <td className="py-3 px-4 bg-blue-900/20 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Check className="w-5 h-5 text-green-400 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <Minus className="w-5 h-5 text-slate-500 mx-auto" />
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            <X className="w-5 h-5 text-red-400 mx-auto" />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="mt-4 flex items-center gap-6 text-xs text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-green-400" />
+                      <span>Full Support</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Minus className="w-4 h-4 text-slate-500" />
+                      <span>Partial/Limited</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <X className="w-4 h-4 text-red-400" />
+                      <span>Not Available</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Section 2: Per-Feature Competitive Analysis */}
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold text-white">Feature-by-Feature Breakdown</h3>
+
+                {/* Session Notes */}
                 <Card className="bg-slate-800 border-slate-700">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-blue-400" />
-                      LogMeIn Resolve
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      Session Notes
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <p className="text-3xl font-bold text-blue-400">2M+</p>
-                      <p className="text-sm text-slate-400">Session Notes Generated</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-green-400">12%</p>
-                      <p className="text-sm text-slate-400">Adoption Rate</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-purple-400">3</p>
-                      <p className="text-sm text-slate-400">AI Features Live</p>
+                  <CardContent>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-blue-900/20 border border-blue-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-blue-300">LogMeIn Resolve</h4>
+                          <Badge className="bg-green-600">Leader</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-300">
+                          <p><strong className="text-white">2M+</strong> notes generated</p>
+                          <p><strong className="text-white">12%</strong> adoption rate</p>
+                          <p><strong className="text-white">Auto-summarization</strong> with context</p>
+                          <p><strong className="text-white">Multi-language</strong> support</p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-80">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-300">TeamViewer</h4>
+                          <Badge variant="outline" className="text-yellow-400 border-yellow-400">Competitor</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-400">
+                          <p><strong className="text-slate-300">800K</strong> notes generated</p>
+                          <p><strong className="text-slate-300">8%</strong> adoption rate</p>
+                          <p><strong className="text-slate-300">Basic summarization</strong></p>
+                          <p><strong className="text-slate-300">Limited languages</strong></p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-60">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-400">Others</h4>
+                          <Badge variant="outline" className="text-red-400 border-red-400">No Support</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-500">
+                          <p>AnyDesk: Not available</p>
+                          <p>ConnectWise: Planned</p>
+                          <p>Splashtop: Not available</p>
+                          <p>RemotePC: Not available</p>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800 border-slate-700 opacity-60">
+                {/* Dynamic Insights */}
+                <Card className="bg-slate-800 border-slate-700">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-orange-400" />
-                      TeamViewer
+                      <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      Dynamic Insights & Pattern Detection
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <p className="text-3xl font-bold text-orange-400">800K</p>
-                      <p className="text-sm text-slate-400">Session Notes Generated</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-orange-400">8%</p>
-                      <p className="text-sm text-slate-400">Adoption Rate</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-orange-400">2</p>
-                      <p className="text-sm text-slate-400">AI Features Live</p>
+                  <CardContent>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-purple-900/20 border border-purple-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-purple-300">LogMeIn Resolve</h4>
+                          <Badge className="bg-green-600">Exclusive</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-300">
+                          <p><strong className="text-white">Real-time</strong> anomaly detection</p>
+                          <p><strong className="text-white">94%</strong> prediction accuracy</p>
+                          <p><strong className="text-white">Automated</strong> root cause analysis</p>
+                          <p><strong className="text-white">Proactive</strong> issue prevention</p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-60">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-400">All Competitors</h4>
+                          <Badge variant="outline" className="text-red-400 border-red-400">Not Available</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-500">
+                          <p>No real-time pattern detection</p>
+                          <p>Manual analysis required</p>
+                          <p>Reactive approach only</p>
+                          <p>Limited analytics capabilities</p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-40">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-500">Market Gap</h4>
+                          <Badge variant="outline" className="text-slate-500 border-slate-500">Opportunity</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-600">
+                          <p>Unique differentiator</p>
+                          <p>High customer demand</p>
+                          <p>Significant value add</p>
+                          <p>Competitive moat</p>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-800 border-slate-700 opacity-60">
+                {/* Virtual Technician */}
+                <Card className="bg-slate-800 border-slate-700">
                   <CardHeader>
                     <CardTitle className="text-white flex items-center gap-2">
-                      <TrendingUp className="w-5 h-5 text-red-400" />
-                      AnyDesk
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      Virtual Technician (AI-Guided Diagnostics)
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <p className="text-3xl font-bold text-red-400">N/A</p>
-                      <p className="text-sm text-slate-400">Session Notes Generated</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-red-400">N/A</p>
-                      <p className="text-sm text-slate-400">Adoption Rate</p>
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-red-400">0</p>
-                      <p className="text-sm text-slate-400">AI Features Live</p>
+                  <CardContent>
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="bg-green-900/20 border border-green-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-green-300">LogMeIn Resolve</h4>
+                          <Badge className="bg-green-600">Leader</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-300">
+                          <p><strong className="text-white">96%</strong> diagnostic accuracy</p>
+                          <p><strong className="text-white">91%</strong> time reduction</p>
+                          <p><strong className="text-white">12K+</strong> issues resolved/month</p>
+                          <p><strong className="text-white">Contextual</strong> guidance</p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-70">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-300">TeamViewer & ConnectWise</h4>
+                          <Badge variant="outline" className="text-yellow-400 border-yellow-400">Limited</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-400">
+                          <p>Basic diagnostic tools</p>
+                          <p>Manual troubleshooting steps</p>
+                          <p>No AI-powered guidance</p>
+                          <p>Static knowledge base</p>
+                        </div>
+                      </div>
+                      <div className="bg-slate-750 border border-slate-600 rounded-lg p-4 opacity-60">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-slate-400">Others</h4>
+                          <Badge variant="outline" className="text-red-400 border-red-400">No Support</Badge>
+                        </div>
+                        <div className="space-y-2 text-sm text-slate-500">
+                          <p>AnyDesk: Not available</p>
+                          <p>Splashtop: Not available</p>
+                          <p>RemotePC: Not available</p>
+                          <p>Manual diagnostics only</p>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </div>
-
-              <Card className="bg-slate-800 border-slate-700">
-                <CardHeader>
-                  <CardTitle className="text-white">Competitive Advantages</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Market Leadership:</strong> 2.5x more AI-generated session notes than TeamViewer</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Feature Breadth:</strong> Only provider with comprehensive AI suite (Notes, Insights, Virtual Technician)</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Innovation Velocity:</strong> 3 major AI features launched in 12 months vs. competitors' 0-2</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-green-400 font-bold text-xl">✓</span>
-                      <span><strong className="text-white">Customer Satisfaction:</strong> 89% satisfaction rate with AI features, industry-leading</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
             </div>
           </div>
         )}
