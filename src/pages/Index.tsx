@@ -398,15 +398,15 @@ const Index = () => {
                   </div>
                 </div>
               ) : (
-                // Current State - Simplified with same layout
+                // Current State - Simplified with fitted boxes
                 <div className="relative">
-                  {/* Entrypoint - Just Ticket */}
-                  <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 mb-8">
-                    <div className="absolute -top-3 left-4 bg-slate-900 px-2">
-                      <span className="text-xs font-semibold text-purple-400">ENTRYPOINT</span>
-                    </div>
-                    <div className="grid grid-cols-4 gap-3">
-                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700">
+                  {/* Entrypoint - Just Ticket - Fitted */}
+                  <div className="flex justify-center mb-8">
+                    <div className="relative border-2 border-dashed border-purple-500/50 rounded-xl p-6 bg-purple-900/10 inline-block">
+                      <div className="absolute -top-3 left-4 bg-slate-900 px-2">
+                        <span className="text-xs font-semibold text-purple-400">ENTRYPOINT</span>
+                      </div>
+                      <Card className="bg-gradient-to-br from-purple-900/60 to-purple-800/40 border-purple-700 w-64">
                         <CardContent className="p-4">
                           <div className="flex items-center gap-2 mb-1">
                             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
@@ -414,10 +414,6 @@ const Index = () => {
                           </div>
                         </CardContent>
                       </Card>
-                      {/* Empty placeholders to maintain grid */}
-                      <div className="opacity-0"></div>
-                      <div className="opacity-0"></div>
-                      <div className="opacity-0"></div>
                     </div>
                   </div>
 
@@ -426,9 +422,9 @@ const Index = () => {
                     <ArrowDown className="w-8 h-8 text-slate-500" />
                   </div>
 
-                  {/* Middle Row: Diagnostics, Resolution Agent, and Actions */}
+                  {/* Middle Row: Diagnostics, Resolution Agent */}
                   <div className="grid grid-cols-3 gap-8 items-start">
-                    {/* Diagnostics - Green - Left */}
+                    {/* Diagnostics - Green - Left - Fitted */}
                     <div className="relative border-2 border-dashed border-green-500/50 rounded-xl p-6 bg-green-900/10">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-green-400">DIAGNOSTICS</span>
@@ -450,10 +446,6 @@ const Index = () => {
                             </div>
                           </CardContent>
                         </Card>
-                        {/* Empty placeholder to maintain size */}
-                        <div className="opacity-0 p-4">
-                          <div className="h-6"></div>
-                        </div>
                       </div>
                     </div>
 
@@ -488,9 +480,9 @@ const Index = () => {
                     <div></div>
                   </div>
 
-                  {/* Actions - Blue - Bottom Center */}
-                  <div className="mt-8 max-w-md mx-auto">
-                    <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10">
+                  {/* Actions - Blue - Bottom Center - Fitted */}
+                  <div className="mt-8 flex justify-center">
+                    <div className="relative border-2 border-dashed border-blue-500/50 rounded-xl p-6 bg-blue-900/10 inline-block">
                       <div className="absolute -top-3 left-4 bg-slate-900 px-2">
                         <span className="text-xs font-semibold text-blue-400">ACTIONS</span>
                       </div>
@@ -511,9 +503,6 @@ const Index = () => {
                             </div>
                           </CardContent>
                         </Card>
-                        {/* Empty placeholders to maintain grid */}
-                        <div className="opacity-0"></div>
-                        <div className="opacity-0"></div>
                       </div>
                     </div>
                   </div>
