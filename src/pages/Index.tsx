@@ -16,22 +16,43 @@ import {
   Minus,
   Bot,
   ArrowDown,
-  ArrowRight
+  ArrowRight,
+  BookOpen,
+  TrendingUp,
+  Users,
+  Laptop
 } from 'lucide-react';
 
-type Section = 'agenda' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
+type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
   const [selectedFeature, setSelectedFeature] = useState('session-notes');
   const [isFutureState, setIsFutureState] = useState(true);
+  const [currentStory, setCurrentStory] = useState(0);
 
   const sections: { id: Section; title: string; icon: React.ComponentType<{ className?: string }> }[] = [
     { id: 'agenda', title: 'Agenda', icon: Calendar },
+    { id: 'story', title: 'Story', icon: BookOpen },
     { id: 'ai-agents', title: 'AI Agents', icon: Bot },
     { id: 'features', title: 'Feature Overview', icon: Sparkles },
     { id: 'competitive-view', title: 'Competitive View', icon: Shield },
     { id: 'roadmap', title: 'Roadmap', icon: Target }
+  ];
+
+  const stories = [
+    {
+      title: "The CEO's Dilemma",
+      subtitle: "Making Data-Driven Decisions Without Being a Data Analyst",
+      icon: TrendingUp,
+      color: "from-blue-600 to-blue-800",
+      scenario: "You are the CEO of a support company, and you love metrics, but you're not a data analyst - Dynamic insights solves this problem - you use dynamic insights to look into the people who work for you (tickets/session reports), and you want to know if you need to plan capital expense of upgrading computers, so you use dynamic insights to investigate the fleet of devices under your care.",
+      keyPoints: [
+        { icon: Users, text: "Monitor team performance through tickets and session reports" },
+        { icon: Laptop, text: "Assess device fleet health for capital planning" },
+        { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
+      ]
+    }
   ];
 
   const currentIndex = sections.findIndex(s => s.id === currentSection);
@@ -45,6 +66,18 @@ const Index = () => {
   const handleNext = () => {
     if (currentIndex < sections.length - 1) {
       setCurrentSection(sections[currentIndex + 1].id);
+    }
+  };
+
+  const handleStoryPrevious = () => {
+    if (currentStory > 0) {
+      setCurrentStory(currentStory - 1);
+    }
+  };
+
+  const handleStoryNext = () => {
+    if (currentStory < stories.length - 1) {
+      setCurrentStory(currentStory + 1);
     }
   };
 
@@ -200,6 +233,108 @@ const Index = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {currentSection === 'story' && (
+          <div className="flex-1 bg-slate-900 overflow-auto p-8">
+            <div className="max-w-5xl mx-auto">
+              {/* Story Navigation */}
+              <div className="flex items-center justify-between mb-8">
+                <Button
+                  variant="ghost"
+                  onClick={handleStoryPrevious}
+                  disabled={currentStory === 0}
+                  className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-1" />
+                  Previous Story
+                </Button>
+                
+                <div className="flex items-center gap-2">
+                  {stories.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentStory(index)}
+                      className={`h-2 rounded-full transition-all ${
+                        index === currentStory 
+                          ? 'w-8 bg-blue-500' 
+                          : 'w-2 bg-slate-600 hover:bg-slate-500'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <Button
+                  variant="ghost"
+                  onClick={handleStoryNext}
+                  disabled={currentStory === stories.length - 1}
+                  className="text-slate-300 hover:text-white hover:bg-slate-800 disabled:opacity-30"
+                >
+                  Next Story
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+
+              {/* Story Content */}
+              <Card className={`bg-gradient-to-br ${stories[currentStory].color} border-0 shadow-2xl`}>
+                <CardHeader className="pb-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      {(() => {
+                        const StoryIcon = stories[currentStory].icon;
+                        return <StoryIcon className="w-8 h-8 text-white" />;
+                      })()}
+                    </div>
+                    <div className="flex-1">
+                      <Badge className="mb-3 bg-white/20 text-white border-white/30">
+                        Story {currentStory + 1} of {stories.length}
+                      </Badge>
+                      <CardTitle className="text-3xl font-bold text-white mb-2">
+                        {stories[currentStory].title}
+                      </CardTitle>
+                      <p className="text-lg text-white/80">
+                        {stories[currentStory].subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* Scenario */}
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                    <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wide mb-3">
+                      The Scenario
+                    </h3>
+                    <p className="text-white text-base leading-relaxed">
+                      {stories[currentStory].scenario}
+                    </p>
+                  </div>
+
+                  {/* Key Points */}
+                  <div className="space-y-3">
+                    <h3 className="text-sm font-semibold text-white/70 uppercase tracking-wide">
+                      Key Capabilities
+                    </h3>
+                    {stories[currentStory].keyPoints.map((point, index) => {
+                      const PointIcon = point.icon;
+                      return (
+                        <div
+                          key={index}
+                          className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20"
+                        >
+                          <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <PointIcon className="w-5 h-5 text-white" />
+                          </div>
+                          <p className="text-white text-sm leading-relaxed pt-2">
+                            {point.text}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         )}
