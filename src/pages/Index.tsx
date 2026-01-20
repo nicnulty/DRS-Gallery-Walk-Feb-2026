@@ -74,50 +74,7 @@ const Index = () => {
         { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
         { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
       ],
-      illustration: (
-        <svg viewBox="0 0 400 300" className="w-full h-auto">
-          {/* Disguised boss with fake mustache and glasses */}
-          <circle cx="100" cy="120" r="30" fill="#94a3b8" />
-          <rect x="85" y="115" width="30" height="3" fill="#1e293b" />
-          <ellipse cx="90" cy="115" rx="8" ry="6" fill="#1e293b" opacity="0.3" />
-          <ellipse cx="110" cy="115" rx="8" ry="6" fill="#1e293b" opacity="0.3" />
-          <path d="M 85 130 Q 100 135 115 130" fill="none" stroke="#1e293b" strokeWidth="3" />
-          <rect x="70" y="150" width="60" height="50" fill="#64748b" />
-          <rect x="65" y="200" width="20" height="40" fill="#64748b" />
-          <rect x="105" y="200" width="20" height="40" fill="#64748b" />
-          
-          {/* Headset */}
-          <path d="M 70 120 Q 70 100 100 100 Q 130 100 130 120" fill="none" stroke="#475569" strokeWidth="4" />
-          <rect x="128" y="118" width="8" height="15" fill="#475569" rx="2" />
-          
-          {/* Computer with ticket */}
-          <rect x="180" y="140" width="120" height="80" fill="#1e293b" stroke="#64748b" strokeWidth="2" />
-          <rect x="190" y="150" width="100" height="60" fill="#334155" />
-          
-          {/* Ticket icon */}
-          <rect x="200" y="160" width="35" height="40" fill="#475569" rx="2" />
-          <line x1="205" y1="170" x2="230" y2="170" stroke="#94a3b8" strokeWidth="2" />
-          <line x1="205" y1="180" x2="225" y2="180" stroke="#94a3b8" strokeWidth="2" />
-          <line x1="205" y1="190" x2="230" y2="190" stroke="#94a3b8" strokeWidth="2" />
-          
-          {/* Bluetooth symbol being fixed */}
-          <path d="M 250 170 L 250 200 L 270 185 L 250 170 L 270 155 L 250 140 L 250 170" 
-                fill="none" stroke="#3b82f6" strokeWidth="3" />
-          <circle cx="270" cy="155" r="3" fill="#3b82f6" />
-          <circle cx="270" cy="185" r="3" fill="#3b82f6" />
-          
-          {/* Wrench tool */}
-          <rect x="320" y="180" width="8" height="40" fill="#64748b" transform="rotate(-30 324 200)" />
-          <circle cx="324" cy="175" r="8" fill="#64748b" />
-          
-          {/* Knowledge base book */}
-          <rect x="320" y="100" width="50" height="60" fill="#475569" />
-          <rect x="325" y="105" width="40" height="50" fill="#64748b" />
-          <line x1="330" y1="115" x2="360" y2="115" stroke="#94a3b8" strokeWidth="2" />
-          <line x1="330" y1="125" x2="355" y2="125" stroke="#94a3b8" strokeWidth="2" />
-          <line x1="330" y1="135" x2="360" y2="135" stroke="#94a3b8" strokeWidth="2" />
-        </svg>
-      )
+      illustrationImage: `${import.meta.env.BASE_URL}undercover.png`
     }
   ];
 
@@ -372,15 +329,11 @@ const Index = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="bg-white rounded-lg p-6 border border-slate-700">
-                        {stories[currentStory].illustrationImage ? (
-                          <img 
-                            src={stories[currentStory].illustrationImage} 
-                            alt={stories[currentStory].title}
-                            className="w-full h-auto"
-                          />
-                        ) : (
-                          stories[currentStory].illustration
-                        )}
+                        <img 
+                          src={stories[currentStory].illustrationImage} 
+                          alt={stories[currentStory].title}
+                          className="w-full h-auto"
+                        />
                       </div>
                     </CardContent>
                   </Card>
