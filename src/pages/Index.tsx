@@ -50,7 +50,7 @@ const Index = () => {
       title: "The CEO's Dilemma",
       subtitle: "Making Data-Driven Decisions Without Being a Data Analyst",
       icon: TrendingUp,
-      color: "from-slate-700 to-slate-800",
+      color: "from-slate-700 via-slate-750 to-slate-800",
       relatedFeature: "dynamic-insights",
       scenario: "You are the CEO of a support company, and you love metrics, but you're not a data analyst - Dynamic insights solves this problem - you use dynamic insights to look into the people who work for you (tickets/session reports), and you want to know if you need to plan capital expense of upgrading computers, so you use dynamic insights to investigate the fleet of devices under your care.",
       keyPoints: [
@@ -97,7 +97,7 @@ const Index = () => {
       title: "Undercover Boss",
       subtitle: "Learning the Day-to-Day Reality of Technical Support",
       icon: UserCheck,
-      color: "from-slate-700 to-slate-800",
+      color: "from-slate-700 via-teal-900/20 to-slate-800",
       relatedFeature: "session-notes",
       scenario: "You decide you want to learn how technicians actually do their job day to day, so you become a technician, and get a ticket. You check the related knowledge base articles and not find a solution. You create the session with the person and fix the problem (turn on bluetooth). Next you look at the session notes that AI created for you, and to make your life easier create KB article for next time.",
       keyPoints: [
@@ -133,9 +133,9 @@ const Index = () => {
           
           {/* Bluetooth symbol being fixed */}
           <path d="M 250 170 L 250 200 L 270 185 L 250 170 L 270 155 L 250 140 L 250 170" 
-                fill="none" stroke="#3b82f6" strokeWidth="3" />
-          <circle cx="270" cy="155" r="3" fill="#3b82f6" />
-          <circle cx="270" cy="185" r="3" fill="#3b82f6" />
+                fill="none" stroke="#14b8a6" strokeWidth="3" />
+          <circle cx="270" cy="155" r="3" fill="#14b8a6" />
+          <circle cx="270" cy="185" r="3" fill="#14b8a6" />
           
           {/* Wrench tool */}
           <rect x="320" y="180" width="8" height="40" fill="#64748b" transform="rotate(-30 324 200)" />
