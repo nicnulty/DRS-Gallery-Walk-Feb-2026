@@ -94,13 +94,8 @@ const Index = () => {
               <div className="inline-block p-4 bg-white/10 rounded-2xl backdrop-blur-sm">
                 <Sparkles className="w-20 h-20 text-blue-300" />
               </div>
-              <h1 className="text-6xl font-bold text-white">AI Innovation Showcase</h1>
-              <p className="text-2xl text-blue-200">Executive Presentation - Q4 2024</p>
-              <div className="pt-8">
-                <Badge className="text-lg px-6 py-2 bg-blue-600 hover:bg-blue-700">
-                  Transforming IT Support with Artificial Intelligence
-                </Badge>
-              </div>
+              <h1 className="text-6xl font-bold text-white">Dresden AI Gallery Walk</h1>
+              <p className="text-2xl text-blue-200">February 2026</p>
             </div>
           </div>
         )}
