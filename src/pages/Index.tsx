@@ -28,12 +28,11 @@ import {
   Wrench
 } from 'lucide-react';
 
-type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
+// Import images directly
+import ceoDilemmaImg from '/public/ceodilemma.png';
+import undercoverImg from '/public/undercover.png';
 
-const getAssetPath = (filename: string) => {
-  const base = import.meta.env.BASE_URL || '/';
-  return `${base}${filename}`.replace(/\/+/g, '/');
-};
+type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
 
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
@@ -64,7 +63,7 @@ const Index = () => {
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
       ],
-      illustrationImage: getAssetPath('ceodilemma.png')
+      illustrationImage: ceoDilemmaImg
     },
     {
       title: "Undercover Boss",
@@ -79,7 +78,7 @@ const Index = () => {
         { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
         { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
       ],
-      illustrationImage: getAssetPath('undercover.png')
+      illustrationImage: undercoverImg
     }
   ];
 
