@@ -30,6 +30,11 @@ import {
 
 type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
 
+const getAssetPath = (filename: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  return `${base}${filename}`.replace(/\/+/g, '/');
+};
+
 const Index = () => {
   const [currentSection, setCurrentSection] = useState<Section>('agenda');
   const [selectedFeature, setSelectedFeature] = useState('session-notes');
@@ -59,7 +64,7 @@ const Index = () => {
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
       ],
-      illustrationImage: `${import.meta.env.BASE_URL}ceodilemma.png`
+      illustrationImage: getAssetPath('ceodilemma.png')
     },
     {
       title: "Undercover Boss",
@@ -74,7 +79,7 @@ const Index = () => {
         { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
         { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
       ],
-      illustrationImage: `${import.meta.env.BASE_URL}undercover.png`
+      illustrationImage: getAssetPath('undercover.png')
     }
   ];
 
