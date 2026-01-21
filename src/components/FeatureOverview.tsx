@@ -79,7 +79,6 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigat
   const featureToStoryMap: Record<string, number> = {
     'dynamic-insights': 0,
     'session-notes': 1,
-    // Add more mappings as stories are added
   };
 
   const featureToStoryName: Record<string, string> = {
@@ -143,21 +142,6 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigat
             </Button>
           </div>
         </div>
-
-        {/* Navigation to Related Story */}
-        {relatedStoryIndex !== undefined && onNavigateToStory && (
-          <div className="mb-4">
-            <Button
-              onClick={() => onNavigateToStory(relatedStoryIndex)}
-              variant="outline"
-              className="bg-slate-800 border-slate-700 hover:bg-slate-700 text-slate-300 hover:text-white"
-              size="sm"
-            >
-              <BookOpen className="w-3 h-3 mr-2" />
-              View Related Story: {relatedStoryName}
-            </Button>
-          </div>
-        )}
 
         {/* Two Column Layout */}
         <div className="grid grid-cols-2 gap-4">
@@ -340,6 +324,31 @@ const FeatureOverview = ({ features, selectedFeature, onFeatureChange, onNavigat
                 </div>
               </CardContent>
             </Card>
+
+            {/* Related Story - Matching Story Page Style */}
+            {relatedStoryIndex !== undefined && onNavigateToStory && (
+              <Card className="bg-slate-800 border-slate-700">
+                <CardContent className="p-4">
+                  <div className="bg-slate-900 rounded p-4 border border-slate-700">
+                    <div className="flex items-center gap-2 mb-3">
+                      <BookOpen className="w-4 h-4 text-blue-400" />
+                      <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                        Related Story
+                      </h3>
+                    </div>
+                    <button
+                      onClick={() => onNavigateToStory(relatedStoryIndex)}
+                      className="w-full flex items-center justify-between bg-slate-800 hover:bg-slate-700 rounded-lg p-3 border border-slate-600 hover:border-blue-500 transition-all group"
+                    >
+                      <span className="text-sm font-medium text-white">
+                        {relatedStoryName}
+                      </span>
+                      <BookOpen className="w-4 h-4 text-slate-400 group-hover:text-blue-400 transition-colors" />
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </div>
