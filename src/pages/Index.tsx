@@ -28,10 +28,6 @@ import {
   Wrench
 } from 'lucide-react';
 
-// Import images - Vite will handle these correctly
-import ceoDilemmaImg from '../../../public/ceodilemma.png';
-import undercoverImg from '../../../public/undercover.png';
-
 type Section = 'agenda' | 'story' | 'ai-agents' | 'features' | 'competitive-view' | 'roadmap';
 
 const Index = () => {
@@ -63,7 +59,7 @@ const Index = () => {
         { icon: Laptop, text: "Assess device fleet health for capital planning" },
         { icon: TrendingUp, text: "Get actionable insights without data analysis expertise" }
       ],
-      illustrationImage: ceoDilemmaImg
+      illustrationImage: '/ceodilemma.png'
     },
     {
       title: "Undercover Boss",
@@ -78,7 +74,7 @@ const Index = () => {
         { icon: Wrench, text: "Resolve issues hands-on during remote support sessions" },
         { icon: FileText, text: "Automatically generate KB articles from AI session notes" }
       ],
-      illustrationImage: undercoverImg
+      illustrationImage: '/undercover.png'
     }
   ];
 
